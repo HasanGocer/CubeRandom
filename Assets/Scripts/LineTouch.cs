@@ -24,7 +24,7 @@ public class LineTouch : MonoBehaviour
             }
             else if (lineManager.ID != GetComponent<ObjectID>().objectID && !addedLineManger)
             {
-                //iptal
+                lineManager.LineCanceled(lineManager.ID, lineManager.Objects);
             }
         }
     }
