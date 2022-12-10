@@ -10,7 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool dropTransfer;
 
     public int money;
-    public int level, XP;
+    public int level;
     public int researchPoint;
     public int vibration;
     public int sound;
@@ -41,11 +41,6 @@ public class GameManager : MonoSingleton<GameManager>
             level = PlayerPrefs.GetInt("level");
         else
             PlayerPrefs.SetInt("level", 1);
-
-        if (PlayerPrefs.HasKey("XP"))
-            XP = PlayerPrefs.GetInt("XP");
-        else
-            PlayerPrefs.SetInt("XP", 0);
 
         if (!PlayerPrefs.HasKey("first"))
         {
@@ -83,11 +78,6 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetLevel()
     {
         PlayerPrefs.SetInt("level", level);
-    }
-
-    public void SetXP()
-    {
-        PlayerPrefs.SetInt("XP", XP);
     }
 
     public void SetSound()

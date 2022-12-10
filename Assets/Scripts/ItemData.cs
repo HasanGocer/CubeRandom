@@ -16,9 +16,6 @@ public class ItemData : MonoSingleton<ItemData>
     public Field standart;
     public Field factor;
     public Field constant;
-    public Field maxFactor;
-    public Field max;
-    public Field fieldPrice;
 
     public void IDAwake()
     {
