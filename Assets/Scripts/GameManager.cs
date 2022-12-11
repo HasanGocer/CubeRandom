@@ -6,8 +6,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     //managerde bulunacak
 
-    public bool inTransfer;
-    public bool dropTransfer;
+    public bool isStart;
 
     public int money;
     public int level;

@@ -10,7 +10,7 @@ public class Draw : MonoBehaviour
     LineRenderer lr;
     public float timeForNextRay;
     float timer = 0;
-    int wayIndex;
+    public int wayIndex;
     bool touchPlane;
     bool touchStartedOnPlayer;
 
@@ -46,14 +46,13 @@ public class Draw : MonoBehaviour
                 GameObject newWayPoint = ObjectPool.Instance.GetPooledObject(_OPLineCount);
                 LineObjects.Add(newWayPoint);
                 newWayPoint.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-                lr.positionCount = wayIndex + 1;
-                lr.SetPosition(wayIndex, newWayPoint.transform.position);
                 timer = 0;
             }
         }
 
         if (Input.GetMouseButtonUp(0) && touchPlane == true)
         {
+            LineManager.Instance.LineFinish();
             for (int i = 0; i < LineObjects.Count; i++)
             {
                 ObjectPool.Instance.AddObject(_OPLineCount, LineObjects[i]);

@@ -5,6 +5,8 @@ using UnityEngine;
 public class RandomSystem : MonoSingleton<RandomSystem>
 {
     public List<GameObject> ObjectList = new List<GameObject>();
+    public List<int> ObjectTypeInt = new List<int>();
+    public List<int> ObjectCountInt = new List<int>();
     [SerializeField] private GameObject _objectPosTemplate;
     [SerializeField] private int _OPObjectCount;
     [SerializeField] private int _xDÝstance, _zDÝstance;
@@ -12,25 +14,23 @@ public class RandomSystem : MonoSingleton<RandomSystem>
 
     public void StartRandomSystem()
     {
-        StartCoroutine(ObjectPlacementIenumerator(ItemData.Instance.field.objectCount, _OPObjectCount, ItemData.Instance.field.ObjectTypeCount, _xDÝstance, _zDÝstance, _objectPlacementTime, _objectPosTemplate, ObjectList));
+        StartCoroutine(ObjectPlacementIenumerator(_OPObjectCount, ItemData.Instance.field.ObjectTypeCount, _xDÝstance, _zDÝstance, _objectPlacementTime, _objectPosTemplate, ObjectList));
     }
 
-    public IEnumerator ObjectPlacementIenumerator(int maxCount, int OPObjectCount, int maxObjectCount, int xDÝstance, int zDistance, float objectPlacementTime, GameObject objectPosTemplate, List<GameObject> objects)
+    public IEnumerator ObjectPlacementIenumerator(int OPObjectCount, int maxObjectCount, int xDÝstance, int zDistance, float objectPlacementTime, GameObject objectPosTemplate, List<GameObject> objects)
     {
-        while (true)
+        for (int i = 0; i < ItemData.Instance.field.objectCount / 3; i++)
         {
-            if (ObjectCountCheck(maxCount, objects))
+            int ID = IDSelect(maxObjectCount);
+            for (int i1 = 0; i1 < 4; i1++)
             {
                 GameObject obj = GetObject(OPObjectCount);
-                if (objects.Count == 0)
-                    ObjectIDPlacement(obj, maxObjectCount, objects, objects.Count);
-                else
-                    ObjectIDPlacement(obj, maxObjectCount, objects);
+                ObjectIDPlacement(ID, obj, objects);
                 AddList(obj, objects);
                 ObjectPositionPlacement(obj, objectPosTemplate, xDÝstance, zDistance);
                 yield return new WaitForSeconds(objectPlacementTime);
             }
-            yield return null;
+            AddListInt(ID, 4, ObjectTypeInt, ObjectCountInt);
         }
     }
 
@@ -45,13 +45,6 @@ public class RandomSystem : MonoSingleton<RandomSystem>
         ObjectPool.Instance.AddObject(_OPObjectCount, obj);
     }
 
-    private bool ObjectCountCheck(int maxCount, List<GameObject> objects)
-    {
-        if (objects.Count <= maxCount)
-            return true;
-        else
-            return false;
-    }
     private GameObject GetObject(int OPObjectCount)
     {
         return ObjectPool.Instance.GetPooledObject(OPObjectCount);
@@ -60,14 +53,16 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     {
         objects.Add(obj);
     }
-    private void ObjectIDPlacement(GameObject obj, int maxObjectCount, List<GameObject> objects, int count = -1)
+    private int IDSelect(int maxObjectCount)
+    {
+        return Random.Range(1, maxObjectCount);
+
+    }
+    private void ObjectIDPlacement(int ID, GameObject obj, List<GameObject> objects)
     {
         ObjectID objectID = obj.GetComponent<ObjectID>();
 
-        if (count != -1)
-            objectID.objectID = count;
-        else
-            objectID.objectID = Random.Range(1, maxObjectCount);
+        objectID.objectID = ID;
         obj.transform.GetChild(objectID.objectID).gameObject.SetActive(true);
         objectID.ListCount = objects.Count - 1;
     }
@@ -76,5 +71,24 @@ public class RandomSystem : MonoSingleton<RandomSystem>
         int tempX = Random.Range(0, xDÝstance);
         int tempZ = Random.Range(0, zDistance);
         obj.transform.position = new Vector3(objectPosTemplate.transform.position.x + tempX, objectPosTemplate.transform.position.y, objectPosTemplate.transform.position.z + tempZ);
+    }
+    private void AddListInt(int ID, int Count, List<int> ObjectTypeInt, List<int> ObjectCountInt)
+    {
+        bool isHere = false;
+        for (int i = 0; i < ObjectTypeInt.Count; i++)
+        {
+            if (ID == ObjectTypeInt[i])
+            {
+                isHere = true;
+                ObjectCountInt[i] += Count;
+            }
+        }
+
+        if (!isHere)
+        {
+            ObjectTypeInt.Add(ID);
+            ObjectCountInt.Add(Count);
+            FinishSystem.Instance.FinishCheckBool.Add(false);
+        }
     }
 }

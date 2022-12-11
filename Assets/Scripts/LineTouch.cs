@@ -10,6 +10,7 @@ public class LineTouch : MonoBehaviour
     {
         if (other.CompareTag("Line") && !addedLineManger)
         {
+
             LineManager lineManager = LineManager.Instance;
             if (lineManager.ID == -1 && !addedLineManger)
             {
@@ -21,6 +22,12 @@ public class LineTouch : MonoBehaviour
             {
                 lineManager.Objects.Add(this.gameObject);
                 addedLineManger = true;
+                LineRenderer lr = lineManager.Objects[0].GetComponent<LineRenderer>();
+                Draw draw = lineManager.Objects[0].GetComponent<Draw>();
+
+                lr.positionCount = draw.wayIndex + 1;
+                lr.SetPosition(draw.wayIndex, other.transform.position);
+                draw.wayIndex++;
             }
             else if (lineManager.ID != GetComponent<ObjectID>().objectID && !addedLineManger)
             {
