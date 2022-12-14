@@ -28,7 +28,6 @@ public class LineManager : MonoSingleton<LineManager>
             Objects.RemoveAt(i);
             //partical
         }
-        FinishSystem.Instance.CheckCount();
     }
 
     public void LineFinish()

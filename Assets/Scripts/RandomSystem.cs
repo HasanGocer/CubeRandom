@@ -19,18 +19,22 @@ public class RandomSystem : MonoSingleton<RandomSystem>
 
     public IEnumerator ObjectPlacementIenumerator(int OPObjectCount, int maxObjectCount, int xDÝstance, int zDistance, float objectPlacementTime, GameObject objectPosTemplate, List<GameObject> objects)
     {
-        for (int i = 0; i < ItemData.Instance.field.objectCount / 3; i++)
+        while (true)
         {
-            int ID = IDSelect(maxObjectCount);
-            for (int i1 = 0; i1 < 4; i1++)
+            if (ItemData.Instance.field.objectCount >= ObjectList.Count)
             {
-                GameObject obj = GetObject(OPObjectCount);
-                ObjectIDPlacement(ID, obj, objects);
-                AddList(obj, objects);
-                ObjectPositionPlacement(obj, objectPosTemplate, xDÝstance, zDistance);
+                int ID = IDSelect(maxObjectCount);
+                for (int i1 = 0; i1 < 4; i1++)
+                {
+                    GameObject obj = GetObject(OPObjectCount);
+                    ObjectIDPlacement(ID, obj, objects);
+                    AddList(obj, objects);
+                    ObjectPositionPlacement(obj, objectPosTemplate, xDÝstance, zDistance);
+                }
                 yield return new WaitForSeconds(objectPlacementTime);
+                AddListInt(ID, 4, ObjectTypeInt, ObjectCountInt);
             }
-            AddListInt(ID, 4, ObjectTypeInt, ObjectCountInt);
+            yield return null;
         }
     }
 
@@ -56,7 +60,6 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     private int IDSelect(int maxObjectCount)
     {
         return Random.Range(1, maxObjectCount);
-
     }
     private void ObjectIDPlacement(int ID, GameObject obj, List<GameObject> objects)
     {
