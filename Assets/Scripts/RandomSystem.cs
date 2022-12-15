@@ -21,7 +21,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     {
         while (true)
         {
-            if (ItemData.Instance.field.objectCount >= ObjectList.Count)
+            if (ItemData.Instance.field.objectCount >= objects.Count)
             {
                 int ID = IDSelect(maxObjectCount);
                 for (int i1 = 0; i1 < 4; i1++)
@@ -38,14 +38,16 @@ public class RandomSystem : MonoSingleton<RandomSystem>
         }
     }
 
-    public void ObjectPoolAdd(GameObject obj, List<GameObject> objects)
+    public void ObjectPoolAdd(GameObject obj, List<GameObject> objects, int ID)
     {
         for (int i = 0; i < objects.Count; i++)
         {
             if (objects[i] == obj)
+            {
                 objects.RemoveAt(i);
+            }
         }
-        ObjectPool.Instance.AddObject(_OPObjectCount + obj.GetComponent<ObjectID>().objectID, obj);
+        ObjectPool.Instance.AddObject(_OPObjectCount + ID, obj);
     }
 
     private GameObject GetObject(int OPObjectCount)

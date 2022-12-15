@@ -38,6 +38,8 @@ public class LineTouch : MonoBehaviour
             }
             else if (lineManager.ID != GetComponent<ObjectID>().objectID && !addedLineManger)
             {
+                Draw draw = lineManager.Objects[0].GetComponent<Draw>();
+                draw.EndTouch(false);
                 lineManager.LineCanceled(lineManager.ID, lineManager.Objects);
             }
         }

@@ -9,30 +9,31 @@ public class LineManager : MonoSingleton<LineManager>
 
     public void LineCanceled(int ID, List<GameObject> Objects)
     {
-        for (int i = 0; i < Objects.Count; i++)
+        int limit = Objects.Count - 1;
+        for (int i = limit; i >= 0; i--)
         {
             Objects[i].GetComponent<LineTouch>().addedLineManger = false;
             Objects.RemoveAt(i);
         }
-        ID = -1;
+        this.ID = -1;
     }
 
     public void CubesBlast()
     {
         CheckObject();
-        ID = -1;
         int limit = Objects.Count;
         for (int i = limit - 1; i >= 0; i--)
         {
-            RandomSystem.Instance.ObjectPoolAdd(Objects[i], RandomSystem.Instance.ObjectList);
+            RandomSystem.Instance.ObjectPoolAdd(Objects[i], RandomSystem.Instance.ObjectList, ID);
             Objects.RemoveAt(i);
             //partical
         }
+        ID = -1;
     }
 
-    public void LineFinish()
+    public void LineFinish(bool isTrueFinish)
     {
-        if (Objects.Count >= 3)
+        if (Objects.Count >= 3 && isTrueFinish)
         {
             CubesBlast();
         }
