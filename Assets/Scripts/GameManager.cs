@@ -64,10 +64,6 @@ public class GameManager : MonoSingleton<GameManager>
         return factor;
     }
 
-    public void SetResearchPoint()
-    {
-        PlayerPrefs.SetInt("researchPoint", researchPoint);
-    }
 
     public void SetMoney()
     {

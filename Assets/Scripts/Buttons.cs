@@ -70,6 +70,7 @@ public class Buttons : MonoSingleton<Buttons>
         _startPanel.SetActive(false);
         GameManager.Instance.isStart = true;
         RandomSystem.Instance.StartRandomSystem();
+        //FightBarSystem.Instance.StartFightBar();
     }
     private void WinButton()
     {
