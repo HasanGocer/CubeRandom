@@ -26,7 +26,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
                 int ID = IDSelect(maxObjectCount);
                 for (int i1 = 0; i1 < 4; i1++)
                 {
-                    GameObject obj = GetObject(OPObjectCount);
+                    GameObject obj = GetObject(OPObjectCount + ID);
                     ObjectIDPlacement(ID, obj, objects);
                     AddList(obj, objects);
                     ObjectPositionPlacement(obj, objectPosTemplate, xDÝstance, zDistance);
@@ -45,8 +45,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
             if (objects[i] == obj)
                 objects.RemoveAt(i);
         }
-        obj.transform.GetChild(obj.GetComponent<ObjectID>().objectID).gameObject.SetActive(false);
-        ObjectPool.Instance.AddObject(_OPObjectCount, obj);
+        ObjectPool.Instance.AddObject(_OPObjectCount + obj.GetComponent<ObjectID>().objectID, obj);
     }
 
     private GameObject GetObject(int OPObjectCount)
@@ -59,14 +58,13 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     }
     private int IDSelect(int maxObjectCount)
     {
-        return Random.Range(1, maxObjectCount);
+        return Random.Range(0, maxObjectCount);
     }
     private void ObjectIDPlacement(int ID, GameObject obj, List<GameObject> objects)
     {
         ObjectID objectID = obj.GetComponent<ObjectID>();
 
         objectID.objectID = ID;
-        obj.transform.GetChild(objectID.objectID).gameObject.SetActive(true);
         objectID.ListCount = objects.Count - 1;
     }
     private void ObjectPositionPlacement(GameObject obj, GameObject objectPosTemplate, int xDÝstance, int zDistance)

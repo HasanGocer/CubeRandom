@@ -53,7 +53,8 @@ public class Draw : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && touchPlane == true)
         {
             LineManager.Instance.LineFinish();
-            for (int i = 0; i < LineObjects.Count; i++)
+            int limit = LineObjects.Count - 1;
+            for (int i = limit; i >= 0; i--)
             {
                 ObjectPool.Instance.AddObject(_OPLineCount, LineObjects[i]);
                 LineObjects.RemoveAt(i);

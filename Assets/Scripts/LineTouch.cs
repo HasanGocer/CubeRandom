@@ -17,6 +17,13 @@ public class LineTouch : MonoBehaviour
                 lineManager.ID = GetComponent<ObjectID>().objectID;
                 lineManager.Objects.Add(this.gameObject);
                 addedLineManger = true;
+
+                LineRenderer lr = lineManager.Objects[0].GetComponent<LineRenderer>();
+                Draw draw = lineManager.Objects[0].GetComponent<Draw>();
+
+                lr.positionCount = draw.wayIndex + 1;
+                lr.SetPosition(draw.wayIndex, lineManager.Objects[0].transform.position);
+                draw.wayIndex++;
             }
             else if (lineManager.ID == GetComponent<ObjectID>().objectID && !addedLineManger)
             {
