@@ -7,23 +7,36 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
 {
     [SerializeField] private int playerScore, rivalScore;
     [SerializeField] private int maxScore;
+    [SerializeField] private int rivalMaxHit, rivalHitTime;
     [SerializeField] private Image bar;
 
     public void StartFightBar()
     {
-        BarUpdate(playerScore, rivalScore, maxScore, bar);
+        BarUpdate(playerScore, bar);
+        StartCoroutine(RivalHitEnum(rivalHitTime, rivalMaxHit));
     }
 
+    public IEnumerator RivalHitEnum(int waitTime, int plusMaxRange)
+    {
+        while (GameManager.Instance.isStart)
+        {
+            yield return new WaitForSeconds(waitTime);
+            int count = Random.Range(1, plusMaxRange);
+            RivalScoreAdd(count);
+        }
+    }
     public void PlayerScoreAdd(int plus)
     {
-        PlayerScoreAddBar(plus, playerScore, rivalScore, maxScore, bar);
+        PlayerScoreAddBar(plus, maxScore, bar);
+        //player hit
     }
     public void RivalScoreAdd(int plus)
     {
-        RivalScoreAddBar(plus, playerScore, rivalScore, maxScore, bar);
+        RivalScoreAddBar(plus, maxScore, bar);
+        //rivalhit
     }
 
-    private void RivalScoreAddBar(int plus, int playerScore, int rivalScore, int maxScore, Image bar)
+    private void RivalScoreAddBar(int plus, int maxScore, Image bar)
     {
         if (rivalScore > 0 || playerScore == 0)
         {
@@ -38,9 +51,9 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 playerScore = 0;
             }
         }
-        BarUpdate(playerScore, rivalScore, maxScore, bar);
+        BarUpdate(maxScore, bar);
     }
-    private void PlayerScoreAddBar(int plus, int playerScore, int rivalScore, int maxScore, Image bar)
+    private void PlayerScoreAddBar(int plus, int maxScore, Image bar)
     {
         if (playerScore > 0 || rivalScore == 0)
         {
@@ -55,13 +68,13 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 rivalScore = 0;
             }
         }
-        BarUpdate(playerScore, rivalScore, maxScore, bar);
+        BarUpdate(maxScore, bar);
     }
-    private void BarUpdate(int playerScore, int rivalScore, int maxScore, Image bar)
+    private void BarUpdate(int maxScore, Image bar)
     {
         if (playerScore > 0)
         {
-            float count = 0.5f + ((playerScore / maxScore) / 2);
+            float count = 0.5f + (((float)playerScore / (float)maxScore) / 2);
             if (count >= 1)
             {
                 //win
@@ -72,7 +85,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         }
         else if (rivalScore > 0)
         {
-            float count = 0.5f - ((playerScore / maxScore) / 2);
+            float count = 0.5f - (((float)rivalScore / (float)maxScore) / 2);
             if (count <= 0)
             {
                 //lose

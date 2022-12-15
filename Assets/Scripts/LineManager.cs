@@ -21,6 +21,7 @@ public class LineManager : MonoSingleton<LineManager>
     public void CubesBlast()
     {
         CheckObject();
+        FightBarSystem.Instance.PlayerScoreAdd((ID + 1) * Objects.Count);
         int limit = Objects.Count;
         for (int i = limit - 1; i >= 0; i--)
         {
