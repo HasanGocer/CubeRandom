@@ -71,6 +71,7 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.isStart = true;
         RandomSystem.Instance.StartRandomSystem();
         FightBarSystem.Instance.StartFightBar();
+        AnimControl.Instance.StartAnimencer();
     }
     private void WinButton()
     {

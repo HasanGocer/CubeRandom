@@ -21,6 +21,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         while (GameManager.Instance.isStart)
         {
             yield return new WaitForSeconds(waitTime);
+            StartCoroutine(AnimControl.Instance.CallHitRival());
             int count = Random.Range(1, plusMaxRange);
             RivalScoreAdd(count);
         }
@@ -28,12 +29,10 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
     public void PlayerScoreAdd(int plus)
     {
         PlayerScoreAddBar(plus, maxScore, bar);
-        //player hit
     }
     public void RivalScoreAdd(int plus)
     {
         RivalScoreAddBar(plus, maxScore, bar);
-        //rivalhit
     }
 
     private void RivalScoreAddBar(int plus, int maxScore, Image bar)
@@ -85,7 +84,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         }
         else if (rivalScore > 0)
         {
-            float count = 0.5f - (((float)rivalScore / (float)maxScore) / 2);
+            float count = 0.5f + (((float)rivalScore / (float)maxScore) / 2);
             if (count <= 0)
             {
                 //lose
