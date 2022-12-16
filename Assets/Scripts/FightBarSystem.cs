@@ -79,6 +79,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 Buttons.Instance.winPanel.SetActive(true);
                 GameManager.Instance.isStart = false;
                 RandomSystem.Instance.AllObjectCallBack();
+                StartCoroutine(AnimControl.Instance.FinishHim());
                 AnimControl.Instance.CallPlayerWin();
                 bar.fillAmount = 1;
             }
@@ -87,7 +88,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         }
         else if (rivalScore > 0)
         {
-            float count = 0.5f + (((float)rivalScore / (float)maxScore) / 2);
+            float count = 0.5f - (((float)rivalScore / (float)maxScore) / 2);
             if (count <= 0)
             {
                 Buttons.Instance.failPanel.SetActive(true);
