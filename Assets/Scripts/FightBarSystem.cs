@@ -84,7 +84,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 bar.fillAmount = 1;
             }
             else
-                bar.fillAmount = count;
+                StartCoroutine(BarUpdateIenum(count - bar.fillAmount));
         }
         else if (rivalScore > 0)
         {
@@ -98,10 +98,26 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 bar.fillAmount = 0;
             }
             else
-                bar.fillAmount = count;
+                StartCoroutine(BarUpdateIenum(count - bar.fillAmount));
         }
         else
             bar.fillAmount = 0.5f;
+    }
+
+    public IEnumerator BarUpdateIenum(float count)
+    {
+        if (count > 0)
+            for (float i = 0; i < count; i += 0.001f)
+            {
+                bar.fillAmount += 0.001f;
+                yield return new WaitForSeconds(0.005f);
+            }
+        else
+            for (float i = count; i != 0; i += 0.001f)
+            {
+                bar.fillAmount -= 0.001f;
+                yield return new WaitForSeconds(0.005f);
+            }
     }
 
 }

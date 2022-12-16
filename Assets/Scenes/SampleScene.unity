@@ -808,7 +808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &295840159
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2917,6 +2917,8 @@ MonoBehaviour:
   failPanel: {fileID: 3890320070130701608}
   _winButton: {fileID: 3890320069115137950}
   _failButton: {fileID: 3890320069772353522}
+  _startObject1: {fileID: 287816430}
+  _startObject2: {fileID: 295840158}
   moneyText: {fileID: 3890320068796844976}
   levelText: {fileID: 3890320070124879351}
 --- !u!114 &1306721462
@@ -4411,15 +4413,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755716976}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -1.918, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 110182377809276572}
   - {fileID: 39349983}
   m_Father: {fileID: 287816431}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1764828714
 GameObject:
   m_ObjectHideFlags: 0

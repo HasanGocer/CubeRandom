@@ -22,6 +22,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     public GameObject winPanel, failPanel;
     [SerializeField] private Button _winButton, _failButton;
+    [SerializeField] private GameObject _startObject1, _startObject2;
 
     public Text moneyText, levelText;
 
@@ -67,6 +68,8 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void StartButton()
     {
+        _startObject1.SetActive(true);
+        _startObject2.SetActive(true);
         _startPanel.SetActive(false);
         GameManager.Instance.isStart = true;
         RandomSystem.Instance.StartRandomSystem();
