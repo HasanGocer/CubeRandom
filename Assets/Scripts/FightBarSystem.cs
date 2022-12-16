@@ -63,7 +63,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             rivalScore -= plus;
             if (rivalScore < 0)
             {
-                playerScore += rivalScore - 1;
+                playerScore += rivalScore * -1;
                 rivalScore = 0;
             }
         }
@@ -76,7 +76,10 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f + (((float)playerScore / (float)maxScore) / 2);
             if (count >= 1)
             {
-                //win
+                Buttons.Instance.winPanel.SetActive(true);
+                GameManager.Instance.isStart = false;
+                RandomSystem.Instance.AllObjectCallBack();
+                AnimControl.Instance.CallPlayerWin();
                 bar.fillAmount = 1;
             }
             else
@@ -87,7 +90,10 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f + (((float)rivalScore / (float)maxScore) / 2);
             if (count <= 0)
             {
-                //lose
+                Buttons.Instance.failPanel.SetActive(true);
+                GameManager.Instance.isStart = false;
+                RandomSystem.Instance.AllObjectCallBack();
+                AnimControl.Instance.CallRivalWin();
                 bar.fillAmount = 0;
             }
             else

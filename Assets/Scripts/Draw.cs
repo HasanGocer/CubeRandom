@@ -29,7 +29,9 @@ public class Draw : MonoBehaviour
         lr.enabled = true;
         touchStartedOnPlayer = true;
         lr.positionCount = 1;
-        lr.SetPosition(0, transform.position);
+        lr.SetPosition(0, this.transform.position);
+        wayIndex++;
+        lr.positionCount = wayIndex + 1;
         StartCoroutine(StartDraw());
     }
 
@@ -58,6 +60,7 @@ public class Draw : MonoBehaviour
                                 boxCollider.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                                 LineObjects.Add(newWayPoint);
                                 newWayPoint.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                                lr.SetPosition(wayIndex, new Vector3(newWayPoint.transform.position.x, newWayPoint.transform.position.y + 1, newWayPoint.transform.position.z));
                                 timer = 0;
                             }
                         }

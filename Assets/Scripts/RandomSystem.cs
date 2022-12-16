@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class RandomSystem : MonoSingleton<RandomSystem>
 {
@@ -15,6 +16,20 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     public void StartRandomSystem()
     {
         StartCoroutine(ObjectPlacementIenumerator(_OPObjectCount, ItemData.Instance.field.ObjectTypeCount, _xDÝstance, _zDÝstance, _objectPlacementTime, _objectPosTemplate, ObjectList));
+    }
+
+    public void AllObjectCallBack()
+    {
+        int limit = ObjectList.Count - 1;
+        for (int i = limit; i >= 0; i--)
+        {
+            ObjectPool.Instance.AddObject(_OPObjectCount + ObjectList[i].GetComponent<ObjectID>().objectID, ObjectList[i]);
+        }
+    }
+
+    public void ObjectShake(GameObject obj)
+    {
+        obj.transform.DOShakeScale(0.2f);
     }
 
     public IEnumerator ObjectPlacementIenumerator(int OPObjectCount, int maxObjectCount, int xDÝstance, int zDistance, float objectPlacementTime, GameObject objectPosTemplate, List<GameObject> objects)

@@ -22,7 +22,7 @@ public class LineManager : MonoSingleton<LineManager>
     {
         CheckObject();
         StartCoroutine(AnimControl.Instance.CallHitPlayer(ID + 1));
-        FightBarSystem.Instance.PlayerScoreAdd((ID + 1) * Objects.Count);
+        FightBarSystem.Instance.PlayerScoreAdd((ID + 1) * Objects.Count * 3);
         int limit = Objects.Count;
         for (int i = limit - 1; i >= 0; i--)
         {

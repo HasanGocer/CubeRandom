@@ -10,6 +10,7 @@ public class LineTouch : MonoBehaviour
     {
         if (other.CompareTag("Line") && !addedLineManger)
         {
+            RandomSystem.Instance.ObjectShake(this.gameObject);
 
             LineManager lineManager = LineManager.Instance;
             if (lineManager.ID == -1 && !addedLineManger)
@@ -21,9 +22,11 @@ public class LineTouch : MonoBehaviour
                 LineRenderer lr = lineManager.Objects[0].GetComponent<LineRenderer>();
                 Draw draw = lineManager.Objects[0].GetComponent<Draw>();
 
-                lr.positionCount = draw.wayIndex + 1;
-                lr.SetPosition(draw.wayIndex, lineManager.Objects[0].transform.position);
+                GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
+                lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
                 draw.wayIndex++;
+                lr.positionCount = draw.wayIndex + 1;
+                lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
             }
             else if (lineManager.ID == GetComponent<ObjectID>().objectID && !addedLineManger)
             {
@@ -32,9 +35,11 @@ public class LineTouch : MonoBehaviour
                 LineRenderer lr = lineManager.Objects[0].GetComponent<LineRenderer>();
                 Draw draw = lineManager.Objects[0].GetComponent<Draw>();
 
-                lr.positionCount = draw.wayIndex + 1;
-                lr.SetPosition(draw.wayIndex, other.transform.position);
+                GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
+                lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
                 draw.wayIndex++;
+                lr.positionCount = draw.wayIndex + 1;
+                lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
             }
             else if (lineManager.ID != GetComponent<ObjectID>().objectID && !addedLineManger)
             {
