@@ -20,7 +20,8 @@ public class AnimControl : MonoSingleton<AnimControl>
     {
         enemyAnim.Play(boxing1, 0.3f);
         yield return new WaitForSeconds(0.55f);
-        mainAnim.Play(beating1, 0.1f);
+        if (GameManager.Instance.isStart)
+            mainAnim.Play(beating1, 0.1f);
         yield return new WaitForSeconds(1f);
         if (GameManager.Instance.isStart)
         {
@@ -39,7 +40,8 @@ public class AnimControl : MonoSingleton<AnimControl>
             mainAnim.Play(boxing1, 0.3f);
 
         yield return new WaitForSeconds(0.55f);
-        enemyAnim.Play(beating2, 0.1f);
+        if (GameManager.Instance.isStart)
+            enemyAnim.Play(beating2, 0.1f);
         yield return new WaitForSeconds(1f);
         if (GameManager.Instance.isStart)
         {
@@ -51,13 +53,13 @@ public class AnimControl : MonoSingleton<AnimControl>
     public void CallRivalWin()
     {
         enemyAnim.Play(win, 0.3f);
-        mainAnim.Play(death, 0.3f);
+        mainAnim.Play(death, 0.1f);
     }
 
     public void CallPlayerWin()
     {
         mainAnim.Play(win, 0.3f);
-        enemyAnim.Play(death, 0.3f);
+        enemyAnim.Play(death, 0.1f);
     }
 
     public IEnumerator FinishHim()

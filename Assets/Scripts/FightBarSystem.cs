@@ -21,7 +21,8 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         while (GameManager.Instance.isStart)
         {
             yield return new WaitForSeconds(waitTime);
-            StartCoroutine(AnimControl.Instance.CallHitRival());
+            if (GameManager.Instance.isStart)
+                StartCoroutine(AnimControl.Instance.CallHitRival());
             int count = Random.Range(1, plusMaxRange);
             RivalScoreAdd(count);
         }
@@ -107,16 +108,16 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
     public IEnumerator BarUpdateIenum(float count)
     {
         if (count > 0)
-            for (float i = 0; i < count; i += 0.001f)
+            for (float i = 0; i < count; i += 0.0001f)
             {
-                bar.fillAmount += 0.001f;
-                yield return new WaitForSeconds(0.005f);
+                bar.fillAmount += 0.0001f;
+                yield return new WaitForSeconds(0.0005f);
             }
         else
-            for (float i = count; i != 0; i += 0.001f)
+            for (float i = count; i != 0; i += 0.0001f)
             {
-                bar.fillAmount -= 0.001f;
-                yield return new WaitForSeconds(0.005f);
+                bar.fillAmount -= 0.0001f;
+                yield return new WaitForSeconds(0.0005f);
             }
     }
 

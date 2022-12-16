@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39349982}
   m_LocalRotation: {x: -0.45451948, y: 0.5416752, z: -0.54167527, w: 0.45451948}
-  m_LocalPosition: {x: -0.1, y: -0.684, z: 0.356}
+  m_LocalPosition: {x: -0.075, y: -0.684, z: 0.356}
   m_LocalScale: {x: 0.39999998, y: 0.32000002, z: 0.2}
   m_Children:
   - {fileID: 956224256}
@@ -2936,8 +2936,8 @@ MonoBehaviour:
   playerScore: 0
   rivalScore: 0
   maxScore: 100
-  rivalMaxHit: 10
-  rivalHitTime: 2
+  rivalMaxHit: 8
+  rivalHitTime: 5
   bar: {fileID: 641246909}
 --- !u!114 &1306721463
 MonoBehaviour:
@@ -3132,7 +3132,7 @@ MonoBehaviour:
   kick1: {fileID: -203655887218126122, guid: 4d4179c2c6d32084bab5f99464ccb334, type: 3}
   kick2: {fileID: -203655887218126122, guid: bb128cf53da3d6b448cf311c8b85079b, type: 3}
   death: {fileID: -203655887218126122, guid: 5e55f8405623cc0459e22339ef30a18a, type: 3}
-  win: {fileID: -203655887218126122, guid: 6aeaa104d03c37e469f72e005583fd9c, type: 3}
+  win: {fileID: -203655887218126122, guid: 5c7de6da51568fd48a4ca7db7fafd7c4, type: 3}
   finishHim: {fileID: 2137977316}
 --- !u!1 &1414384177
 GameObject:
@@ -6158,7 +6158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110182377809244926}
   m_LocalRotation: {x: 0.54167527, y: 0.45451948, z: -0.45451948, w: -0.5416752}
-  m_LocalPosition: {x: 0.094, y: -0.74600166, z: 0.356}
+  m_LocalPosition: {x: 0.085, y: -0.74600166, z: 0.356}
   m_LocalScale: {x: 0.39999992, y: 0.32000002, z: 0.2}
   m_Children:
   - {fileID: 110182377809276564}
