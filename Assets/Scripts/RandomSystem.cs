@@ -8,6 +8,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     public List<GameObject> ObjectList = new List<GameObject>();
     public List<int> ObjectTypeInt = new List<int>();
     public List<int> ObjectCountInt = new List<int>();
+    public bool[,] ObjectGrid = new bool[10, 10];
     [SerializeField] private GameObject _objectPosTemplate;
     [SerializeField] private int _OPObjectCount;
     [SerializeField] private int _xDÝstance, _zDÝstance;
@@ -88,7 +89,19 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     {
         int tempX = Random.Range(0, xDÝstance);
         int tempZ = Random.Range(0, zDistance);
-        obj.transform.position = new Vector3(objectPosTemplate.transform.position.x + tempX, objectPosTemplate.transform.position.y, objectPosTemplate.transform.position.z + tempZ);
+        bool isFull = false;
+        if (ObjectGrid[tempX, tempZ] == true)
+            isFull = true;
+        if (!isFull)
+        {
+            ObjectID objectID = obj.GetComponent<ObjectID>();
+            objectID.lineCount = tempX;
+            objectID.ColumnCount = tempZ;
+            ObjectGrid[tempX, tempZ] = true;
+            obj.transform.position = new Vector3(objectPosTemplate.transform.position.x + tempX, objectPosTemplate.transform.position.y, objectPosTemplate.transform.position.z + tempZ);
+        }
+        else
+            ObjectPositionPlacement(obj, objectPosTemplate, xDÝstance, zDistance);
     }
     private void AddListInt(int ID, int Count, List<int> ObjectTypeInt, List<int> ObjectCountInt)
     {

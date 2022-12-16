@@ -108,16 +108,16 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
     public IEnumerator BarUpdateIenum(float count)
     {
         if (count > 0)
-            for (float i = 0; i < count; i += 0.0001f)
+            for (float i = 0; i < count; i += 0.001f)
             {
-                bar.fillAmount += 0.0001f;
-                yield return new WaitForSeconds(0.0005f);
+                bar.fillAmount += 0.001f;
+                yield return new WaitForSeconds(0.005f);
             }
         else
-            for (float i = count; i != 0; i += 0.0001f)
+            for (float i = count; i != 0; i += 0.001f)
             {
-                bar.fillAmount -= 0.0001f;
-                yield return new WaitForSeconds(0.0005f);
+                bar.fillAmount -= 0.001f;
+                yield return new WaitForSeconds(0.005f);
             }
     }
 

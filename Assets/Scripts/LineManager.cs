@@ -26,6 +26,8 @@ public class LineManager : MonoSingleton<LineManager>
         int limit = Objects.Count;
         for (int i = limit - 1; i >= 0; i--)
         {
+            ObjectID objectID = Objects[i].GetComponent<ObjectID>();
+            RandomSystem.Instance.ObjectGrid[objectID.lineCount, objectID.ColumnCount] = false;
             RandomSystem.Instance.ObjectPoolAdd(Objects[i], RandomSystem.Instance.ObjectList, ID);
             Objects.RemoveAt(i);
             //partical
