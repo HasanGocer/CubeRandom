@@ -107,18 +107,23 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
 
     public IEnumerator BarUpdateIenum(float count)
     {
+        float timer = 0;
+        float finish;
+        float start = bar.fillAmount;
+
         if (count > 0)
-            for (float i = 0; i < count; i += 0.001f)
-            {
-                bar.fillAmount += 0.001f;
-                yield return new WaitForSeconds(0.005f);
-            }
+            finish = bar.fillAmount + count;
         else
-            for (float i = count; i != 0; i += 0.001f)
-            {
-                bar.fillAmount -= 0.001f;
-                yield return new WaitForSeconds(0.005f);
-            }
+            finish = bar.fillAmount - count;
+
+        while (true)
+        {
+            timer += Time.deltaTime;
+            bar.fillAmount = Mathf.Lerp(start, finish, timer);
+            yield return new WaitForEndOfFrame();
+            if (bar.fillAmount == finish)
+                break;
+        }
     }
 
 }

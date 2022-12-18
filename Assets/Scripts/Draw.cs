@@ -14,6 +14,7 @@ public class Draw : MonoBehaviour
     public int wayIndex;
     public bool touchStartedOnPlayer;
     public bool drawLine;
+    public bool oneTap;
     Touch touch;
 
     public List<GameObject> LineObjects = new List<GameObject>();
@@ -24,17 +25,22 @@ public class Draw : MonoBehaviour
         lr.enabled = false;
         wayIndex = 1;
         touchStartedOnPlayer = false;
+        oneTap = true;
     }
 
     private void OnMouseDown()
     {
-        lr.enabled = true;
-        touchStartedOnPlayer = true;
-        lr.positionCount = 2;
-        lr.SetPosition(0, lineStartPos.transform.position);
-        lr.SetPosition(1, lineStartPos.transform.position);
-        drawLine = true;
-        StartCoroutine(StartDraw());
+        if (oneTap)
+        {
+            oneTap = false;
+            lr.enabled = true;
+            touchStartedOnPlayer = true;
+            lr.positionCount = 2;
+            lr.SetPosition(0, lineStartPos.transform.position);
+            lr.SetPosition(1, lineStartPos.transform.position);
+            drawLine = true;
+            StartCoroutine(StartDraw());
+        }
     }
 
     private IEnumerator StartDraw()
