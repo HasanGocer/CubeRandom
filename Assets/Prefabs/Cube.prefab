@@ -145,7 +145,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.4
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -228,6 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectID: 0
   ListCount: 0
+  lineCount: 0
+  ColumnCount: 0
 --- !u!114 &4699068161510779138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _OPLineCount: 0
+  lineStartPos: {fileID: 5830363734917350076}
   timeForNextRay: 0
   wayIndex: 0
   touchStartedOnPlayer: 0
+  drawLine: 0
   LineObjects: []

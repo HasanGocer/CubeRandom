@@ -7,11 +7,13 @@ using UnityEngine;
 public class Draw : MonoBehaviour
 {
     [SerializeField] private int _OPLineCount;
+    [SerializeField] private GameObject lineStartPos;
     LineRenderer lr;
     public float timeForNextRay;
     float timer = 0;
     public int wayIndex;
     public bool touchStartedOnPlayer;
+    public bool drawLine;
     Touch touch;
 
     public List<GameObject> LineObjects = new List<GameObject>();
@@ -28,10 +30,10 @@ public class Draw : MonoBehaviour
     {
         lr.enabled = true;
         touchStartedOnPlayer = true;
-        lr.positionCount = 1;
-        lr.SetPosition(0, this.transform.position);
-        wayIndex++;
-        lr.positionCount = wayIndex + 1;
+        lr.positionCount = 2;
+        lr.SetPosition(0, lineStartPos.transform.position);
+        lr.SetPosition(1, lineStartPos.transform.position);
+        drawLine = true;
         StartCoroutine(StartDraw());
     }
 
@@ -60,6 +62,11 @@ public class Draw : MonoBehaviour
                                 boxCollider.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                                 LineObjects.Add(newWayPoint);
                                 newWayPoint.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                                if (drawLine)
+                                {
+                                    drawLine = false;
+                                    DrawLine();
+                                }
                                 lr.SetPosition(wayIndex, new Vector3(newWayPoint.transform.position.x, newWayPoint.transform.position.y + 1, newWayPoint.transform.position.z));
                                 timer = 0;
                             }
@@ -86,5 +93,11 @@ public class Draw : MonoBehaviour
         }
         touchStartedOnPlayer = false;
         lr.enabled = false;
+    }
+
+    public void DrawLine()
+    {
+        wayIndex++;
+        lr.positionCount = wayIndex + 1;
     }
 }
