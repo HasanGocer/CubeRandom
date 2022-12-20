@@ -2746,8 +2746,8 @@ MonoBehaviour:
   playerScore: 0
   rivalScore: 0
   maxScore: 100
-  rivalMaxHit: 8
-  rivalHitTime: 5
+  rivalMaxHit: 10
+  rivalHitTime: 4
   bar: {fileID: 641246909}
 --- !u!114 &1306721463
 MonoBehaviour:

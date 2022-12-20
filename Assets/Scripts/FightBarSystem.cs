@@ -111,10 +111,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         float finish;
         float start = bar.fillAmount;
 
-        if (count > 0)
-            finish = bar.fillAmount + count;
-        else
-            finish = bar.fillAmount - count;
+        finish = bar.fillAmount + count;
 
         while (true)
         {
