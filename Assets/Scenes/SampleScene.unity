@@ -10252,6 +10252,8 @@ MonoBehaviour:
   pools:
   - objectPrefab: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8, type: 3}
     poolSize: 200
+  - objectPrefab: {fileID: 1575721338728490, guid: 4171bb92c5c591848b14be1db6f3efe2, type: 3}
+    poolSize: 200
   - objectPrefab: {fileID: 7974379872056442637, guid: 0300189a2abce174586f56e66d1ff8e1, type: 3}
     poolSize: 200
   - objectPrefab: {fileID: 5830363734917350076, guid: 58533aebd72544b4ab30125c3c2d38ce, type: 3}
@@ -11940,6 +11942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _OPforthParticalCount: 0
+  _OPfinishParticalCount: 1
+  FinishParticalPos: {fileID: 110182377809244926}
   comboUI: {fileID: 673243364}
 --- !u!1 &1942051368
 GameObject:
@@ -12307,7 +12311,7 @@ MonoBehaviour:
   ObjectTypeInt: 
   ObjectCountInt: 
   _objectPosTemplate: {fileID: 1647317003}
-  _OPObjectCount: 1
+  _OPObjectCount: 2
   "_xD\u0130stance": 8
   "_zD\u0130stance": 8
   _objectPlacementTime: 0.1

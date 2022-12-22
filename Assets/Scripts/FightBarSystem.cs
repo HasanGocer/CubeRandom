@@ -79,6 +79,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             {
                 Buttons.Instance.winPanel.SetActive(true);
                 StartCoroutine(Buttons.Instance.NoThanxOnActive());
+                StartCoroutine(ParticalSystem.Instance.FinishTimePartical());
                 Buttons.Instance.finishGameMoneyText.text = GameManager.Instance.addedMoney.ToString();
                 StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
                 GameManager.Instance.isStart = false;
@@ -125,5 +126,4 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 break;
         }
     }
-
 }

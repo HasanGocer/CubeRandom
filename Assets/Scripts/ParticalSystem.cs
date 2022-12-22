@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ParticalSystem : MonoSingleton<ParticalSystem>
 {
-    [SerializeField] private int _OPforthParticalCount;
+    [SerializeField] private int _OPforthParticalCount, _OPfinishParticalCount;
+    [SerializeField] private GameObject FinishParticalPos;
     [SerializeField] private GameObject comboUI;
 
     public IEnumerator ForthObjectPartical(GameObject pos)
@@ -15,5 +16,16 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         yield return new WaitForSeconds(3);
         comboUI.SetActive(false);
         ObjectPool.Instance.AddObject(_OPforthParticalCount, part);
+    }
+
+    public IEnumerator FinishTimePartical()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject part = ObjectPool.Instance.GetPooledObject(_OPfinishParticalCount);
+            part.transform.position = FinishParticalPos.transform.position;
+            yield return new WaitForSeconds(0.2f);
+        }
+
     }
 }
