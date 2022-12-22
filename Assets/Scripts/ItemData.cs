@@ -9,7 +9,7 @@ public class ItemData : MonoSingleton<ItemData>
     [System.Serializable]
     public class Field
     {
-        public int objectCount, ObjectTypeCount;
+        public int objectCount, ObjectTypeCount, rivalMaxPower, barHealth;
     }
 
     public Field field;
@@ -21,6 +21,10 @@ public class ItemData : MonoSingleton<ItemData>
     {
         field.objectCount = standart.objectCount + (factor.objectCount * constant.objectCount);
         field.ObjectTypeCount = standart.ObjectTypeCount + (factor.ObjectTypeCount * constant.ObjectTypeCount);
+        field.rivalMaxPower = standart.rivalMaxPower + (factor.rivalMaxPower * constant.rivalMaxPower);
+        FightBarSystem.Instance.rivalMaxHit = field.rivalMaxPower;
+        field.barHealth = standart.barHealth + (factor.barHealth * constant.barHealth);
+        FightBarSystem.Instance.maxScore = field.barHealth;
     }
 
     public void SetObjectTypeCount()
@@ -34,6 +38,20 @@ public class ItemData : MonoSingleton<ItemData>
     {
         factor.objectCount++;
         field.objectCount = standart.objectCount + (factor.objectCount * constant.objectCount);
+        GameManager.Instance.FactorPlacementWrite(ItemData.Instance.factor);
+    }
+
+    public void SetRivalMaxPower()
+    {
+        factor.rivalMaxPower++;
+        field.rivalMaxPower = standart.rivalMaxPower + (factor.rivalMaxPower * constant.rivalMaxPower);
+        GameManager.Instance.FactorPlacementWrite(ItemData.Instance.factor);
+    }
+
+    public void SetBarHealth()
+    {
+        factor.barHealth++;
+        field.barHealth = standart.barHealth + (factor.barHealth * constant.barHealth);
         GameManager.Instance.FactorPlacementWrite(ItemData.Instance.factor);
     }
 }

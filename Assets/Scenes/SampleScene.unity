@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139305, b: 0.49600944, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -510,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.7, y: 14.11}
+  m_AnchoredPosition: {x: 4.7, y: 10.11}
   m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &108425497
@@ -3642,6 +3642,105 @@ Transform:
   m_Father: {fileID: 1968775700}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &673243364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673243365}
+  - component: {fileID: 673243368}
+  - component: {fileID: 673243367}
+  - component: {fileID: 673243366}
+  m_Layer: 5
+  m_Name: Combo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &673243365
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673243364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3890320069175981432}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &673243366
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673243364}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7af44ecbc89c844d865ec4acf1650d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &673243367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673243364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 391ed10d631ab374fbd87c35c7811afe, type: 3}
+    m_FontSize: 200
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 200
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: COMBO
+--- !u!222 &673243368
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673243364}
+  m_CullTransparentMesh: 1
 --- !u!1 &679737357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7526,7 +7625,7 @@ MonoBehaviour:
   rivalScore: 0
   maxScore: 100
   rivalMaxHit: 8
-  rivalHitTime: 5
+  rivalHitTime: 3
   bar: {fileID: 641246909}
 --- !u!114 &1306721463
 MonoBehaviour:
@@ -7540,8 +7639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f62b0dcf856d745b960e2a1492c7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomCountMod: 7
-  ObjectCountMod: 7
+  randomCountMod: 10
+  ObjectCountMod: 10
+  rivalMaxPowerMod: 3
 --- !u!1 &1329549496
 GameObject:
   m_ObjectHideFlags: 0
@@ -10129,6 +10229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
+  - objectPrefab: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8, type: 3}
+    poolSize: 200
   - objectPrefab: {fileID: 7974379872056442637, guid: 0300189a2abce174586f56e66d1ff8e1, type: 3}
     poolSize: 200
   - objectPrefab: {fileID: 5830363734917350076, guid: 58533aebd72544b4ab30125c3c2d38ce, type: 3}
@@ -10171,15 +10273,23 @@ MonoBehaviour:
   field:
     objectCount: 0
     ObjectTypeCount: 0
+    rivalMaxPower: 0
+    barHealth: 0
   standart:
     objectCount: 4
     ObjectTypeCount: 1
+    rivalMaxPower: 10
+    barHealth: 50
   factor:
     objectCount: 1
     ObjectTypeCount: 1
+    rivalMaxPower: 1
+    barHealth: 1
   constant:
     objectCount: 4
     ObjectTypeCount: 1
+    rivalMaxPower: 4
+    barHealth: 50
 --- !u!114 &1568266406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10194,6 +10304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStart: 0
   money: 0
+  addedMoney: 0
   level: 1
   researchPoint: 0
   vibration: 0
@@ -11759,6 +11870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920042555}
   - component: {fileID: 1920042556}
+  - component: {fileID: 1920042557}
   m_Layer: 0
   m_Name: LineManager
   m_TagString: Untagged
@@ -11794,6 +11906,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: -1
   Objects: []
+--- !u!114 &1920042557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920042554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b5c82cfc3776e4fbe163560fa82f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _OPforthParticalCount: 0
+  comboUI: {fileID: 673243364}
 --- !u!1 &1942051368
 GameObject:
   m_ObjectHideFlags: 0
@@ -12160,7 +12286,7 @@ MonoBehaviour:
   ObjectTypeInt: 
   ObjectCountInt: 
   _objectPosTemplate: {fileID: 1647317003}
-  _OPObjectCount: 0
+  _OPObjectCount: 1
   "_xD\u0130stance": 8
   "_zD\u0130stance": 8
   _objectPlacementTime: 0.1
@@ -18072,6 +18198,7 @@ RectTransform:
   - {fileID: 3890320068405888270}
   - {fileID: 268193504}
   - {fileID: 2137977317}
+  - {fileID: 673243365}
   m_Father: {fileID: 1797086474}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

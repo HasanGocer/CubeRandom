@@ -9,6 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isStart;
 
     public int money;
+    public int addedMoney;
     public int level;
     public int researchPoint;
     public int vibration;

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class FightBarSystem : MonoSingleton<FightBarSystem>
 {
     [SerializeField] private int playerScore, rivalScore;
-    [SerializeField] private int maxScore;
-    [SerializeField] private int rivalMaxHit, rivalHitTime;
+    public int maxScore;
+    public int rivalMaxHit, rivalHitTime;
     [SerializeField] private Image bar;
 
     public void StartFightBar()

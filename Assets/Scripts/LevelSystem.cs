@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class LevelSystem : MonoSingleton<LevelSystem>
 {
-    [SerializeField] private int randomCountMod, ObjectCountMod;
+    [SerializeField] private int randomCountMod, ObjectCountMod, rivalMaxPowerMod;
 
     public void NewLevelCheckField()
     {
-        if (GameManager.Instance.level >= randomCountMod * ItemData.Instance.factor.ObjectTypeCount)
-            ItemData.Instance.SetObjectTypeCount();
-        if (GameManager.Instance.level >= ObjectCountMod * ItemData.Instance.factor.objectCount)
-            ItemData.Instance.SetObjectCount();
+        GameManager gameManager = GameManager.Instance;
+        ItemData ýtemData = ItemData.Instance;
+        ItemData.Field factor = ýtemData.factor;
+        if (gameManager.level >= randomCountMod * factor.ObjectTypeCount)
+        {
+            ýtemData.SetBarHealth();
+            ýtemData.SetObjectTypeCount();
+        }
+        if (gameManager.level >= ObjectCountMod * factor.objectCount)
+            ýtemData.SetObjectCount();
+        if (gameManager.level >= rivalMaxPowerMod * factor.rivalMaxPower)
+            ýtemData.SetRivalMaxPower();
     }
 }
