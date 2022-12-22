@@ -21,9 +21,9 @@ public class LineManager : MonoSingleton<LineManager>
     public void CubesBlast()
     {
         CheckObject();
-        StartCoroutine(AnimControl.Instance.CallHitPlayer(ID + 1));
-        FightBarSystem.Instance.PlayerScoreAdd((ID + 1) * Objects.Count * 3);
-        GameManager.Instance.addedMoney += (ID + 1) * Objects.Count * 3;
+        StartCoroutine(AnimControl.Instance.CallHitPlayer(ID % 3));
+        FightBarSystem.Instance.PlayerScoreAdd(ID * Objects.Count * 3);
+        GameManager.Instance.addedMoney += ID * Objects.Count * 3;
         int limit = Objects.Count;
         for (int i = limit - 1; i >= 0; i--)
         {

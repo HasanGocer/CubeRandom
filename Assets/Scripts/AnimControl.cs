@@ -32,11 +32,11 @@ public class AnimControl : MonoSingleton<AnimControl>
 
     public IEnumerator CallHitPlayer(int ID)
     {
-        if (ID == 1)
+        if (ID == 0)
+            mainAnim.Play(boxing1, 0.3f);
+        else if (ID == 1)
             mainAnim.Play(boxing1, 0.3f);
         else if (ID == 2)
-            mainAnim.Play(boxing1, 0.3f);
-        else if (ID == 3)
             mainAnim.Play(boxing1, 0.3f);
 
         yield return new WaitForSeconds(0.55f);

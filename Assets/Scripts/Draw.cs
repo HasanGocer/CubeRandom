@@ -31,21 +31,22 @@ public class Draw : MonoBehaviour
     private void OnMouseDown()
     {
         if (oneTap)
-        {
-            oneTap = false;
-            lr.enabled = true;
-            touchStartedOnPlayer = true;
-            lr.positionCount = 2;
-            lr.SetPosition(0, lineStartPos.transform.position);
-            lr.SetPosition(1, lineStartPos.transform.position);
-            drawLine = true;
-            StartCoroutine(StartDraw());
-        }
+            if (oneTap)
+            {
+                oneTap = false;
+                lr.enabled = true;
+                touchStartedOnPlayer = true;
+                lr.positionCount = 2;
+                lr.SetPosition(0, lineStartPos.transform.position);
+                lr.SetPosition(1, lineStartPos.transform.position);
+                drawLine = true;
+                StartCoroutine(StartDraw());
+            }
     }
 
     private IEnumerator StartDraw()
     {
-        while (touchStartedOnPlayer)
+        while (touchStartedOnPlayer && !oneTap)
         {
             timer += Time.deltaTime;
             if (Input.touchCount > 0 && GameManager.Instance.isStart)
