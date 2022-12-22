@@ -78,6 +78,9 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             if (count >= 1)
             {
                 Buttons.Instance.winPanel.SetActive(true);
+                StartCoroutine(Buttons.Instance.NoThanxOnActive());
+                Buttons.Instance.finishGameMoneyText.text = GameManager.Instance.addedMoney.ToString();
+                StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
                 GameManager.Instance.isStart = false;
                 RandomSystem.Instance.AllObjectCallBack();
                 StartCoroutine(AnimControl.Instance.FinishHim());

@@ -21,7 +21,8 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Button _soundButton, _vibrationButton;
 
     public GameObject winPanel, failPanel;
-    [SerializeField] private Button _winButton, _failButton;
+    [SerializeField] private Button _winPrizeButton, _winButton, _failButton;
+    public Text finishGameMoneyText;
     [SerializeField] private GameObject _startObject1, _startObject2;
 
     public Text moneyText, levelText;
@@ -31,6 +32,11 @@ public class Buttons : MonoSingleton<Buttons>
         ButtonPlacement();
         SettingPlacement();
         levelText.text = GameManager.Instance.level.ToString();
+    }
+    public IEnumerator NoThanxOnActive()
+    {
+        yield return new WaitForSeconds(3);
+        _winButton.gameObject.SetActive(true);
     }
 
     private void SettingPlacement()
@@ -61,7 +67,8 @@ public class Buttons : MonoSingleton<Buttons>
         _settingBackButton.onClick.AddListener(SettingBackButton);
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);
-        _winButton.onClick.AddListener(WinButton);
+        _winPrizeButton.onClick.AddListener(() => StartCoroutine(WinPrizeButton()));
+        _winButton.onClick.AddListener(() => StartCoroutine(WinButton()));
         _failButton.onClick.AddListener(FailButton);
     }
 
@@ -76,15 +83,27 @@ public class Buttons : MonoSingleton<Buttons>
         FightBarSystem.Instance.StartFightBar();
         AnimControl.Instance.StartAnimencer();
     }
-    private void WinButton()
+    private IEnumerator WinPrizeButton()
     {
+        BarSystem.Instance.BarStopButton();
         GameManager.Instance.level++;
         GameManager.Instance.SetLevel();
         LevelSystem.Instance.NewLevelCheckField();
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(0);
+    }
+    private IEnumerator WinButton()
+    {
+        MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
+        GameManager.Instance.level++;
+        GameManager.Instance.SetLevel();
+        LevelSystem.Instance.NewLevelCheckField();
+        yield return new WaitForSeconds(10);
         SceneManager.LoadScene(0);
     }
     private void FailButton()
     {
+        MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         SceneManager.LoadScene(0);
     }
     private void SettingButton()
@@ -135,4 +154,5 @@ public class Buttons : MonoSingleton<Buttons>
             GameManager.Instance.SetVibration();
         }
     }
+
 }
