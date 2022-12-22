@@ -99,6 +99,7 @@ public class Draw : MonoBehaviour
         }
         touchStartedOnPlayer = false;
         lr.enabled = false;
+        oneTap = true;
     }
 
     public void DrawLine()
