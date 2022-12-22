@@ -31,7 +31,6 @@ public class LineManager : MonoSingleton<LineManager>
             RandomSystem.Instance.ObjectGrid[objectID.lineCount, objectID.ColumnCount] = false;
             RandomSystem.Instance.ObjectPoolAdd(Objects[i], RandomSystem.Instance.ObjectList, ID);
             Objects.RemoveAt(i);
-            //partical
         }
         ID = -1;
     }
@@ -41,7 +40,8 @@ public class LineManager : MonoSingleton<LineManager>
         if (Objects.Count >= 3 && isTrueFinish)
         {
             CubesBlast();
-            StartCoroutine(ParticalSystem.Instance.ForthObjectPartical(Objects[0].gameObject));
+            if (Objects.Count >= 4)
+                StartCoroutine(ParticalSystem.Instance.ForthObjectPartical(Objects[0].gameObject));
         }
         else
         {
