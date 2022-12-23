@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Draw : MonoBehaviour
 {
-    [SerializeField] private int _OPLineCount;
     [SerializeField] private GameObject lineStartPos;
     LineRenderer lr;
     public float timeForNextRay;

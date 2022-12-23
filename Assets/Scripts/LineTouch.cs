@@ -5,6 +5,7 @@ using UnityEngine;
 public class LineTouch : MonoBehaviour
 {
     public bool addedLineManger;
+    [SerializeField] private int _OPLineCount;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,6 +37,8 @@ public class LineTouch : MonoBehaviour
                 Draw draw = lineManager.Objects[0].GetComponent<Draw>();
 
                 GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
+                GameObject lineGO = ObjectPool.Instance.GetPooledObject(_OPLineCount);
+                lineGO.GetComponent<LineID>().RePlacement();
                 lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
                 draw.wayIndex++;
                 lr.positionCount = draw.wayIndex + 1;

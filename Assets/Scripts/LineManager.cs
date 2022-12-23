@@ -6,6 +6,7 @@ public class LineManager : MonoSingleton<LineManager>
 {
     public int ID = -1;
     public List<GameObject> Objects = new List<GameObject>();
+    public List<GameObject> LineGOs = new List<GameObject>();
 
     public void LineCanceled(int ID, List<GameObject> Objects)
     {
@@ -37,6 +38,7 @@ public class LineManager : MonoSingleton<LineManager>
 
     public void LineFinish(bool isTrueFinish)
     {
+        LineGOsDelete();
         if (Objects.Count >= 3 && isTrueFinish)
         {
             CubesBlast();
@@ -56,6 +58,15 @@ public class LineManager : MonoSingleton<LineManager>
         {
             if (ID == randomSystem.ObjectTypeInt[i])
                 randomSystem.ObjectCountInt[i] -= Objects.Count;
+        }
+    }
+
+    private void LineGOsDelete()
+    {
+        int limit = LineGOs.Count - 1;
+        for (int i = limit; i >= 0; i--)
+        {
+            LineGOs[i].SetActive(false);
         }
     }
 }

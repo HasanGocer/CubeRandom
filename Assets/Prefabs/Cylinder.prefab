@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2522421787474744215}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addedLineManger: 0
+  _OPLineCount: 2
 --- !u!114 &2522421787474744215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80b75326943d4b40a9b670c6d4a0ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _OPLineCount: 0
   lineStartPos: {fileID: 960478390834365787}
   timeForNextRay: 0
   wayIndex: 0
