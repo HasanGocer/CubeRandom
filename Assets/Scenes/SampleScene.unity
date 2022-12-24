@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139305, b: 0.49600944, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7627,8 +7627,8 @@ MonoBehaviour:
   playerScore: 0
   rivalScore: 0
   maxScore: 100
-  rivalMaxHit: 8
-  rivalHitTime: 3
+  rivalMaxHit: 5
+  rivalHitTime: 4
   bar: {fileID: 641246909}
 --- !u!114 &1306721463
 MonoBehaviour:
@@ -10303,7 +10303,7 @@ MonoBehaviour:
   standart:
     objectCount: 4
     ObjectTypeCount: 1
-    rivalMaxPower: 10
+    rivalMaxPower: 5
     barHealth: 50
   factor:
     objectCount: 1
