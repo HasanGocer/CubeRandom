@@ -22,7 +22,7 @@ public class LineTouch : MonoBehaviour
 
                 LineRenderer lr = lineManager.Objects[0].GetComponent<LineRenderer>();
                 Draw draw = lineManager.Objects[0].GetComponent<Draw>();
-
+                this.gameObject.layer = 6;
                 GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
                 lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
                 draw.wayIndex++;
@@ -36,6 +36,7 @@ public class LineTouch : MonoBehaviour
                 LineRenderer lr = lineManager.Objects[0].GetComponent<LineRenderer>();
                 Draw draw = lineManager.Objects[0].GetComponent<Draw>();
 
+                this.gameObject.layer = 6;
                 GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
                 GameObject lineGO = ObjectPool.Instance.GetPooledObject(_OPLineCount);
                 lineGO.GetComponent<LineID>().RePlacement();

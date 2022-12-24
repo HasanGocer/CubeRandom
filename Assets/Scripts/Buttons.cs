@@ -32,6 +32,7 @@ public class Buttons : MonoSingleton<Buttons>
         ButtonPlacement();
         SettingPlacement();
         levelText.text = GameManager.Instance.level.ToString();
+        moneyText.text = GameManager.Instance.money.ToString();
     }
     public IEnumerator NoThanxOnActive()
     {

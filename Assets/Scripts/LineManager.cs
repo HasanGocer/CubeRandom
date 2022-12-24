@@ -11,8 +11,10 @@ public class LineManager : MonoSingleton<LineManager>
     public void LineCanceled(int ID, List<GameObject> Objects)
     {
         int limit = Objects.Count - 1;
+        Objects[0].GetComponent<Draw>().LineRendererCanceled();
         for (int i = limit; i >= 0; i--)
         {
+            Objects[i].gameObject.layer = default;
             Objects[i].GetComponent<LineTouch>().addedLineManger = false;
             Objects.RemoveAt(i);
         }

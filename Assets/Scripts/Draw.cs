@@ -107,4 +107,12 @@ public class Draw : MonoBehaviour
         wayIndex++;
         lr.positionCount = wayIndex + 1;
     }
+
+    public void LineRendererCanceled()
+    {
+        lr.positionCount = 2;
+        lr.SetPosition(0, lineStartPos.transform.position);
+        lr.SetPosition(1, lineStartPos.transform.position);
+        lr.enabled = false;
+    }
 }
