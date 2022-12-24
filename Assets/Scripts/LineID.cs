@@ -15,6 +15,7 @@ public class LineID : MonoBehaviour
         {
             if (other.GetComponent<ObjectID>().objectID != LineManager.Instance.ID)
                 LineManager.Instance.Objects[0].GetComponent<Draw>().EndTouch(false);
+            other.gameObject.layer = 6;
         }
     }
 
