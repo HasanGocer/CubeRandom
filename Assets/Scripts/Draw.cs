@@ -35,10 +35,9 @@ public class Draw : MonoBehaviour
                 oneTap = false;
                 lr.enabled = true;
                 touchStartedOnPlayer = true;
-                lr.positionCount = 3;
+                lr.positionCount = 2;
                 lr.SetPosition(0, lineStartPos.transform.position);
                 lr.SetPosition(1, lineStartPos.transform.position);
-                lr.SetPosition(2, lineStartPos.transform.position);
                 drawLine = true;
                 StartCoroutine(StartDraw());
             }
@@ -99,7 +98,6 @@ public class Draw : MonoBehaviour
             LineObjects.RemoveAt(i);
         }
         touchStartedOnPlayer = false;
-        lr.enabled = false;
         oneTap = true;
     }
 
@@ -111,10 +109,10 @@ public class Draw : MonoBehaviour
 
     public void LineRendererCanceled()
     {
-        lr.positionCount = 3;
+        lr.positionCount = 2;
         lr.SetPosition(0, lineStartPos.transform.position);
         lr.SetPosition(1, lineStartPos.transform.position);
-        lr.SetPosition(2, lineStartPos.transform.position);
+        wayIndex = 1;
         lr.enabled = false;
     }
 }

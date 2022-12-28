@@ -25,9 +25,7 @@ public class LineTouch : MonoBehaviour
                 this.gameObject.layer = 6;
                 GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
                 lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
-                draw.wayIndex++;
-                lr.positionCount = draw.wayIndex + 1;
-                lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
+                draw.drawLine = true;
             }
             else if (lineManager.ID == GetComponent<ObjectID>().objectID && !addedLineManger)
             {
@@ -42,9 +40,7 @@ public class LineTouch : MonoBehaviour
                 lineGO.GetComponent<LineID>().RePlacement();
                 lineManager.LineGOs.Add(lineGO);
                 lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
-                draw.wayIndex++;
-                lr.positionCount = draw.wayIndex + 1;
-                lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
+                draw.drawLine = true;
             }
             else if (lineManager.ID != GetComponent<ObjectID>().objectID && !addedLineManger)
             {
