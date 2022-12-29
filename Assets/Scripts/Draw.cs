@@ -29,9 +29,10 @@ public class Draw : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (oneTap)
+        if (oneTap && !LineManager.Instance.isFree)
             if (oneTap)
             {
+                LineManager.Instance.isFree = true;
                 oneTap = false;
                 lr.enabled = true;
                 touchStartedOnPlayer = true;
@@ -90,6 +91,7 @@ public class Draw : MonoBehaviour
 
     public void EndTouch(bool isTrueFinish)
     {
+        LineManager.Instance.isFree = false;
         LineManager.Instance.LineFinish(isTrueFinish);
         int limit = LineObjects.Count - 1;
         for (int i = limit; i >= 0; i--)

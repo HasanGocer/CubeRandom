@@ -7,6 +7,7 @@ public class LineManager : MonoSingleton<LineManager>
     public int ID = -1;
     public List<GameObject> Objects = new List<GameObject>();
     public List<GameObject> LineGOs = new List<GameObject>();
+    public bool isFree;
 
     public void LineCanceled(int ID, List<GameObject> Objects)
     {

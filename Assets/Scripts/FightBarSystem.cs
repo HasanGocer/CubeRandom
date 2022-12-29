@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class FightBarSystem : MonoSingleton<FightBarSystem>
 {
     [SerializeField] private int playerScore, rivalScore;
-    public int maxScore;
     public int rivalMaxHit, rivalHitTime;
     [SerializeField] private Image bar;
 
@@ -29,11 +28,11 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
     }
     public void PlayerScoreAdd(int plus)
     {
-        PlayerScoreAddBar(plus, maxScore, bar);
+        PlayerScoreAddBar(plus, ItemData.Instance.field.barHealth, bar);
     }
     public void RivalScoreAdd(int plus)
     {
-        RivalScoreAddBar(plus, maxScore, bar);
+        RivalScoreAddBar(plus, ItemData.Instance.field.barHealth, bar);
     }
 
     private void RivalScoreAddBar(int plus, int maxScore, Image bar)

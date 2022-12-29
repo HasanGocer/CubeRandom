@@ -7,7 +7,7 @@ public class AnimControl : MonoSingleton<AnimControl>
 {
     [SerializeField] private AnimancerComponent mainAnim, enemyAnim;
     [SerializeField] private AnimationClip waiting, boxing1, boxing2, beating1, beating2, kick1, kick2, death, win;
-    //[SerializeField] private Animator mainAnim, enemyAnim;
+    [SerializeField] private Material _deadPlayerMaterial;
     public GameObject finishHim;
 
     public void StartAnimencer()
@@ -54,12 +54,14 @@ public class AnimControl : MonoSingleton<AnimControl>
     {
         enemyAnim.Play(win, 0.3f);
         mainAnim.Play(death, 0.1f);
+        mainAnim.gameObject.GetComponent<MeshRenderer>().material = _deadPlayerMaterial;
     }
 
     public void CallPlayerWin()
     {
         mainAnim.Play(win, 0.3f);
         enemyAnim.Play(death, 0.1f);
+        enemyAnim.gameObject.GetComponent<MeshRenderer>().material = _deadPlayerMaterial;
     }
 
     public IEnumerator FinishHim()

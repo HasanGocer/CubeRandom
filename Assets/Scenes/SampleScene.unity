@@ -7626,7 +7626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   rivalScore: 0
-  maxScore: 100
   rivalMaxHit: 5
   rivalHitTime: 7
   bar: {fileID: 641246909}
@@ -8511,6 +8510,7 @@ MonoBehaviour:
   kick2: {fileID: -203655887218126122, guid: bb128cf53da3d6b448cf311c8b85079b, type: 3}
   death: {fileID: -203655887218126122, guid: 5e55f8405623cc0459e22339ef30a18a, type: 3}
   win: {fileID: -203655887218126122, guid: 5c7de6da51568fd48a4ca7db7fafd7c4, type: 3}
+  _deadPlayerMaterial: {fileID: 0}
   finishHim: {fileID: 2137977316}
 --- !u!1 &1414384177
 GameObject:
@@ -10312,7 +10312,7 @@ MonoBehaviour:
     objectCount: 4
     ObjectTypeCount: 1
     rivalMaxPower: 5
-    barHealth: 50
+    barHealth: 10
   factor:
     objectCount: 1
     ObjectTypeCount: 1
@@ -10322,7 +10322,7 @@ MonoBehaviour:
     objectCount: 4
     ObjectTypeCount: 1
     rivalMaxPower: 4
-    barHealth: 50
+    barHealth: 20
 --- !u!114 &1568266406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11940,6 +11940,7 @@ MonoBehaviour:
   ID: -1
   Objects: []
   LineGOs: []
+  isFree: 0
 --- !u!114 &1920042557
 MonoBehaviour:
   m_ObjectHideFlags: 0
