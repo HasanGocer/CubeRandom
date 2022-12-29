@@ -81,6 +81,7 @@ public class Buttons : MonoSingleton<Buttons>
     {
         _startObject1.SetActive(true);
         _startPanel.SetActive(false);
+        MaterialSystem.Instance.rivalPlayer.material = MaterialSystem.Instance.RivalMaterials[GameManager.Instance.level % MaterialSystem.Instance.RivalMaterials.Count];
         GameManager.Instance.isStart = true;
         RandomSystem.Instance.StartRandomSystem();
         FightBarSystem.Instance.StartFightBar();
