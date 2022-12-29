@@ -7727,7 +7727,7 @@ MonoBehaviour:
   playerScore: 0
   rivalScore: 0
   rivalMaxHit: 5
-  rivalHitTime: 7
+  rivalHitTime: 8
   bar: {fileID: 641246909}
 --- !u!114 &1306721463
 MonoBehaviour:
@@ -7743,7 +7743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomCountMod: 10
   ObjectCountMod: 10
-  rivalMaxPowerMod: 3
+  rivalMaxPowerMod: 5
 --- !u!114 &1306721464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7777,7 +7777,7 @@ MonoBehaviour:
   ObjectImage:
   - {fileID: 21300000, guid: 6da09e75a347ea44eaca4f71684fdf2a, type: 3}
   - {fileID: 21300000, guid: d31cb1fdd8c719842b2ef24a58d74b5f, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 8f49f550c1de03143b5a07c7c618046d, type: 3}
   - {fileID: 21300000, guid: 8d823b9f5b5978446b4199abb7a03dbc, type: 3}
   - {fileID: 21300000, guid: 41e28ba531fbb97448ecc03e7632c7f3, type: 3}
   - {fileID: 21300000, guid: ebe64d841a9c06345b579dabf87df296, type: 3}
@@ -10470,7 +10470,7 @@ MonoBehaviour:
   standart:
     objectCount: 4
     ObjectTypeCount: 1
-    rivalMaxPower: 5
+    rivalMaxPower: 3
     barHealth: 20
   factor:
     objectCount: 1

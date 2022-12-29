@@ -23,12 +23,12 @@ public class ObjectOpenSystem : MonoSingleton<ObjectOpenSystem>
     public IEnumerator NewImageButton()
     {
         newImagePanel.SetActive(false);
-        Buttons.Instance.winButton.gameObject.SetActive(false);
+        Buttons.Instance.winPanel.gameObject.SetActive(false);
         GameObject obj = Instantiate(newObjectParticalGO);
         obj.transform.position = firstPosTemp.transform.position;
         obj.transform.DOJump(lastposTemp.transform.position, 2, 2, 2);
         yield return new WaitForSeconds(2);
-        Buttons.Instance.winButton.gameObject.SetActive(true);
+        Buttons.Instance.winPanel.gameObject.SetActive(true);
         StartCoroutine(Buttons.Instance.NoThanxOnActive());
         StartCoroutine(ParticalSystem.Instance.FinishTimePartical());
     }
