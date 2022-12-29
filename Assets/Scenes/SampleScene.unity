@@ -10312,7 +10312,7 @@ MonoBehaviour:
     objectCount: 4
     ObjectTypeCount: 1
     rivalMaxPower: 5
-    barHealth: 10
+    barHealth: 20
   factor:
     objectCount: 1
     ObjectTypeCount: 1
