@@ -23,7 +23,7 @@ public class Buttons : MonoSingleton<Buttons>
     public GameObject winPanel, failPanel;
     [SerializeField] private Button _winPrizeButton, _winButton, _failButton;
     public Text finishGameMoneyText;
-    [SerializeField] private GameObject _startObject1, _startObject2;
+    [SerializeField] private GameObject _startObject1;
 
     public Text moneyText, levelText;
 
@@ -77,7 +77,6 @@ public class Buttons : MonoSingleton<Buttons>
     private void StartButton()
     {
         _startObject1.SetActive(true);
-        _startObject2.SetActive(true);
         _startPanel.SetActive(false);
         GameManager.Instance.isStart = true;
         RandomSystem.Instance.StartRandomSystem();
@@ -90,16 +89,21 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.level++;
         GameManager.Instance.SetLevel();
         LevelSystem.Instance.NewLevelCheckField();
-        yield return new WaitForSeconds(10);
+        _winButton.enabled = false;
+        _winPrizeButton.enabled = false;
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
     }
     private IEnumerator WinButton()
     {
+        print(1);
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         GameManager.Instance.level++;
         GameManager.Instance.SetLevel();
         LevelSystem.Instance.NewLevelCheckField();
-        yield return new WaitForSeconds(10);
+        _winButton.enabled = false;
+        _winPrizeButton.enabled = false;
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
     }
     private void FailButton()
