@@ -11,15 +11,19 @@ public class LineManager : MonoSingleton<LineManager>
 
     public void LineCanceled(int ID, List<GameObject> Objects)
     {
-        int limit = Objects.Count - 1;
-        Objects[0].GetComponent<Draw>().LineRendererCanceled();
-        for (int i = limit; i >= 0; i--)
+        if (Objects.Count >= 0)
         {
-            Objects[i].gameObject.layer = default;
-            Objects[i].GetComponent<LineTouch>().addedLineManger = false;
-            Objects.RemoveAt(i);
+            int limit = Objects.Count - 1;
+            print(limit);
+            Objects[0].GetComponent<Draw>().LineRendererCanceled();
+            for (int i = limit; i >= 0; i--)
+            {
+                Objects[i].gameObject.layer = default;
+                Objects[i].GetComponent<LineTouch>().addedLineManger = false;
+                Objects.RemoveAt(i);
+            }
+            this.ID = -1;
         }
-        this.ID = -1;
     }
 
     public void CubesBlast()

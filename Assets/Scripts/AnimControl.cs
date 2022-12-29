@@ -54,14 +54,14 @@ public class AnimControl : MonoSingleton<AnimControl>
     {
         enemyAnim.Play(win, 0.3f);
         mainAnim.Play(death, 0.1f);
-        mainAnim.gameObject.GetComponent<MeshRenderer>().material = _deadPlayerMaterial;
+        enemyAnim.gameObject.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = _deadPlayerMaterial;
     }
 
     public void CallPlayerWin()
     {
         mainAnim.Play(win, 0.3f);
         enemyAnim.Play(death, 0.1f);
-        enemyAnim.gameObject.GetComponent<MeshRenderer>().material = _deadPlayerMaterial;
+        enemyAnim.gameObject.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = _deadPlayerMaterial;
     }
 
     public IEnumerator FinishHim()

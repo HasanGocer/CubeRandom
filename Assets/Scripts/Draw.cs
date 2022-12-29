@@ -9,7 +9,6 @@ public class Draw : MonoBehaviour
     [SerializeField] private GameObject lineStartPos;
     LineRenderer lr;
     public float timeForNextRay;
-    float timer = 0;
     public int wayIndex;
     public bool touchStartedOnPlayer;
     public bool drawLine;
@@ -48,14 +47,13 @@ public class Draw : MonoBehaviour
     {
         while (touchStartedOnPlayer && !oneTap)
         {
-            timer += Time.deltaTime;
             if (Input.touchCount > 0 && GameManager.Instance.isStart)
             {
                 touch = Input.GetTouch(0);
                 switch (touch.phase)
                 {
                     case TouchPhase.Moved:
-                        if (timer > timeForNextRay && touchStartedOnPlayer)
+                        if ( touchStartedOnPlayer)
                         {
                             Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100));
                             Vector3 direction = worldFromMousePos - Camera.main.transform.position;
@@ -75,7 +73,6 @@ public class Draw : MonoBehaviour
                                     DrawLine();
                                 }
                                 lr.SetPosition(wayIndex, new Vector3(newWayPoint.transform.position.x, newWayPoint.transform.position.y + 1, newWayPoint.transform.position.z));
-                                timer = 0;
                             }
                         }
                         break;

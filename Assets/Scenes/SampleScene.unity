@@ -1608,7 +1608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &287816431
 Transform:
   m_ObjectHideFlags: 0
@@ -8510,7 +8510,7 @@ MonoBehaviour:
   kick2: {fileID: -203655887218126122, guid: bb128cf53da3d6b448cf311c8b85079b, type: 3}
   death: {fileID: -203655887218126122, guid: 5e55f8405623cc0459e22339ef30a18a, type: 3}
   win: {fileID: -203655887218126122, guid: 5c7de6da51568fd48a4ca7db7fafd7c4, type: 3}
-  _deadPlayerMaterial: {fileID: 0}
+  _deadPlayerMaterial: {fileID: 2100000, guid: f4ee79fa581b70e4686fd5c795fdcc2b, type: 2}
   finishHim: {fileID: 2137977316}
 --- !u!1 &1414384177
 GameObject:
@@ -10260,7 +10260,7 @@ MonoBehaviour:
     poolSize: 200
   - objectPrefab: {fileID: 1562484072896606, guid: abc74fa5a8c17094abef71b0f27a82dc, type: 3}
     poolSize: 200
-  - objectPrefab: {fileID: 1365534754294002, guid: 699b091cdfac2634fa1238fdd9d076fa, type: 3}
+  - objectPrefab: {fileID: 1497565848121274, guid: cac8b14e36b5626448770f4d2804d497, type: 3}
     poolSize: 200
   - objectPrefab: {fileID: 1061527629812338, guid: d201b2382d8b64e45a8979524707b60c, type: 3}
     poolSize: 200
