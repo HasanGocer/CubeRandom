@@ -12,12 +12,13 @@ public class LevelSystem : MonoSingleton<LevelSystem>
         GameManager gameManager = GameManager.Instance;
         ItemData ýtemData = ItemData.Instance;
         ItemData.Field factor = ýtemData.factor;
-        if (gameManager.level >= randomCountMod * factor.ObjectTypeCount)
+        if (gameManager.level >= ObjectCountMod * factor.ObjectTypeCount)
         {
             ýtemData.SetBarHealth();
             ýtemData.SetObjectTypeCount();
+            ObjectOpenSystem.Instance.NewObjectOpenPanel();
         }
-        if (gameManager.level >= ObjectCountMod * factor.objectCount)
+        if (gameManager.level >= randomCountMod * factor.objectCount)
             ýtemData.SetObjectCount();
         if (gameManager.level >= rivalMaxPowerMod * factor.rivalMaxPower)
             ýtemData.SetRivalMaxPower();

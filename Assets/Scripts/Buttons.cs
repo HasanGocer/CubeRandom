@@ -21,7 +21,9 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Button _soundButton, _vibrationButton;
 
     public GameObject winPanel, failPanel;
-    [SerializeField] private Button _winPrizeButton, _winButton, _failButton;
+    [SerializeField] private Button _winPrizeButton, _failButton;
+    public Button winButton;
+
     public Text finishGameMoneyText;
     [SerializeField] private GameObject _startObject1;
 
@@ -37,7 +39,7 @@ public class Buttons : MonoSingleton<Buttons>
     public IEnumerator NoThanxOnActive()
     {
         yield return new WaitForSeconds(3);
-        _winButton.gameObject.SetActive(true);
+        winButton.gameObject.SetActive(true);
     }
 
     private void SettingPlacement()
@@ -69,8 +71,9 @@ public class Buttons : MonoSingleton<Buttons>
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);
         _winPrizeButton.onClick.AddListener(() => StartCoroutine(WinPrizeButton()));
-        _winButton.onClick.AddListener(() => StartCoroutine(WinButton()));
+        winButton.onClick.AddListener(() => StartCoroutine(WinButton()));
         _failButton.onClick.AddListener(FailButton);
+        ObjectOpenSystem.Instance.newImageButton.onClick.AddListener(() => StartCoroutine(ObjectOpenSystem.Instance.NewImageButton()));
     }
 
 
@@ -86,22 +89,16 @@ public class Buttons : MonoSingleton<Buttons>
     private IEnumerator WinPrizeButton()
     {
         BarSystem.Instance.BarStopButton();
-        GameManager.Instance.level++;
-        GameManager.Instance.SetLevel();
-        LevelSystem.Instance.NewLevelCheckField();
-        _winButton.enabled = false;
+        winButton.enabled = false;
         _winPrizeButton.enabled = false;
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
     }
     private IEnumerator WinButton()
     {
-        print(1);
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
-        GameManager.Instance.level++;
-        GameManager.Instance.SetLevel();
         LevelSystem.Instance.NewLevelCheckField();
-        _winButton.enabled = false;
+        winButton.enabled = false;
         _winPrizeButton.enabled = false;
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);

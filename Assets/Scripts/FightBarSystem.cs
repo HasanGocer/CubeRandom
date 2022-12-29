@@ -83,9 +83,12 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
                 GameManager.Instance.isStart = false;
                 RandomSystem.Instance.AllObjectCallBack();
-                StartCoroutine(AnimControl.Instance.FinishHim());
+                //StartCoroutine(AnimControl.Instance.FinishHim());
                 AnimControl.Instance.CallPlayerWin();
                 bar.fillAmount = 1;
+                GameManager.Instance.level++;
+                GameManager.Instance.SetLevel();
+                LevelSystem.Instance.NewLevelCheckField();
             }
             else
                 StartCoroutine(BarUpdateIenum(count - bar.fillAmount));
