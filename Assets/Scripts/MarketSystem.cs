@@ -24,11 +24,13 @@ public class MarketSystem : MonoSingleton<MarketSystem>
     public FieldBool fieldBool;
     public FieldRivalColor fieldPlayerColor;
 
-    [SerializeField] private GameObject mainPlayer;
+    [SerializeField] private GameObject _mainPlayer;
+    public GameObject marketMainPlayer;
     [SerializeField] private Button _useButton, _equipedButton, _moneyBuyButton, _addBuyButton;
     [SerializeField] private Text _moneyBuyPriceText;
     [SerializeField] private Button _marketOpenButton, _marketCloseButton;
     public GameObject marketPanel;
+    [SerializeField] private Material Mat2D;
     public int fieldCount;
 
     public void MarketStart()
@@ -41,11 +43,16 @@ public class MarketSystem : MonoSingleton<MarketSystem>
 
     public void MarketOpenButton()
     {
+        _marketOpenButton.gameObject.SetActive(false);
+        marketMainPlayer.SetActive(true);
         marketPanel.SetActive(true);
+        AnimControl.Instance.CallMarketAnim();
     }
 
     public void MarketCloseButton()
     {
+        _marketOpenButton.gameObject.SetActive(true);
+        marketMainPlayer.SetActive(false);
         marketPanel.SetActive(false);
     }
 
@@ -81,7 +88,8 @@ public class MarketSystem : MonoSingleton<MarketSystem>
         _equipedButton.gameObject.SetActive(true);
         _useButton.gameObject.SetActive(false);
         fieldBool.equipedCount = fieldCount;
-        mainPlayer.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldCount];
+        _mainPlayer.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldCount];
+        marketMainPlayer.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldCount];
         GameManager.Instance.MarketPlacementWrite(fieldBool);
     }
     private void SelectMarketPlayerColorMoneyBuyButton()
@@ -115,7 +123,8 @@ public class MarketSystem : MonoSingleton<MarketSystem>
     }
     private void PlayerMaterialPlacement()
     {
-        mainPlayer.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldBool.equipedCount];
+        _mainPlayer.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldBool.equipedCount];
+        marketMainPlayer.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldBool.equipedCount];
     }
     private void DownButtonPlacement()
     {
@@ -127,10 +136,22 @@ public class MarketSystem : MonoSingleton<MarketSystem>
     {
         for (int i = 0; i < fieldPlayerColor.PlayerImageButton.Count; i++)
         {
-            fieldPlayerColor.PlayerImageButton[i].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(i));
+            Material mat = new Material(Mat2D.shader);
+            mat.color = fieldPlayerColor.PlayerColorMaterial[i].color;
+            fieldPlayerColor.PlayerImageButton[i].transform.GetChild(0).GetComponent<Image>().material = mat;
+            fieldPlayerColor.PlayerImageButton[i].transform.GetChild(0).GetComponent<Image>().material.color = fieldPlayerColor.PlayerColorMaterial[i].color;
             if (fieldBool.PlayerColor[i])
                 fieldPlayerColor.PlayerImageLock[i].gameObject.SetActive(false);
         }
+        fieldPlayerColor.PlayerImageButton[0].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(0));
+        fieldPlayerColor.PlayerImageButton[1].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(1));
+        fieldPlayerColor.PlayerImageButton[2].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(2));
+        fieldPlayerColor.PlayerImageButton[3].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(3));
+        fieldPlayerColor.PlayerImageButton[4].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(4));
+        fieldPlayerColor.PlayerImageButton[5].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(5));
+        fieldPlayerColor.PlayerImageButton[6].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(6));
+        fieldPlayerColor.PlayerImageButton[7].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(7));
+        fieldPlayerColor.PlayerImageButton[8].onClick.AddListener(() => SelectMarketPlayerColorFieldButton(8));
     }
     private void MarketOnOffPlacement()
     {

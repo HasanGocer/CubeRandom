@@ -70,4 +70,9 @@ public class AnimControl : MonoSingleton<AnimControl>
         yield return new WaitForSeconds(1);
         finishHim.SetActive(false);
     }
+
+    public void CallMarketAnim()
+    {
+        MarketSystem.Instance.marketMainPlayer.GetComponent<AnimancerComponent>().Play(waiting);
+    }
 }
