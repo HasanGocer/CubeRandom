@@ -41,8 +41,14 @@ public class MarketSystem : MonoSingleton<MarketSystem>
         MarketStartPlacement();
     }
 
+    public void GameStart()
+    {
+        _marketOpenButton.gameObject.SetActive(false);
+    }
+
     public void MarketOpenButton()
     {
+        Buttons.Instance._startPanel.SetActive(false);
         _marketOpenButton.gameObject.SetActive(false);
         marketMainPlayer.SetActive(true);
         marketPanel.SetActive(true);
@@ -51,6 +57,7 @@ public class MarketSystem : MonoSingleton<MarketSystem>
 
     public void MarketCloseButton()
     {
+        Buttons.Instance._startPanel.SetActive(true);
         _marketOpenButton.gameObject.SetActive(true);
         marketMainPlayer.SetActive(false);
         marketPanel.SetActive(false);

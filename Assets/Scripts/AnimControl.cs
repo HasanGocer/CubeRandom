@@ -6,7 +6,7 @@ using Animancer;
 public class AnimControl : MonoSingleton<AnimControl>
 {
     [SerializeField] private AnimancerComponent mainAnim, enemyAnim;
-    [SerializeField] private AnimationClip waiting, boxing1, boxing2, beating1, beating2, kick1, kick2, death, win;
+    [SerializeField] private AnimationClip waiting, boxing1, boxing2, beating1, beating2, kick1, kick2, death, win, ýdle;
     [SerializeField] private Material _deadPlayerMaterial;
     public GameObject finishHim;
 
@@ -73,6 +73,6 @@ public class AnimControl : MonoSingleton<AnimControl>
 
     public void CallMarketAnim()
     {
-        MarketSystem.Instance.marketMainPlayer.GetComponent<AnimancerComponent>().Play(waiting);
+        MarketSystem.Instance.marketMainPlayer.GetComponent<AnimancerComponent>().Play(ýdle);
     }
 }

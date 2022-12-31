@@ -10,7 +10,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     [SerializeField] private GameObject _money;
 
-    [SerializeField] private GameObject _startPanel;
+    public GameObject _startPanel;
     [SerializeField] private Button _startButton;
 
     [SerializeField] private Button _settingButton;
@@ -79,6 +79,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void StartButton()
     {
+        MarketSystem.Instance.GameStart();
         _startObject1.SetActive(true);
         _startPanel.SetActive(false);
         MaterialSystem.Instance.rivalPlayer.material = MaterialSystem.Instance.RivalMaterials[GameManager.Instance.level % MaterialSystem.Instance.RivalMaterials.Count];

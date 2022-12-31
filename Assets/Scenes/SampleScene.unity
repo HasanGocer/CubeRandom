@@ -11275,6 +11275,7 @@ MonoBehaviour:
   kick2: {fileID: -203655887218126122, guid: bb128cf53da3d6b448cf311c8b85079b, type: 3}
   death: {fileID: -203655887218126122, guid: 5e55f8405623cc0459e22339ef30a18a, type: 3}
   win: {fileID: -203655887218126122, guid: 5c7de6da51568fd48a4ca7db7fafd7c4, type: 3}
+  "\u0131dle": {fileID: -203655887218126122, guid: 2c93a91f964bc8a498a946c5529e1f44, type: 3}
   _deadPlayerMaterial: {fileID: 2100000, guid: f4ee79fa581b70e4686fd5c795fdcc2b, type: 2}
   finishHim: {fileID: 2137977316}
 --- !u!1 &1414384177
