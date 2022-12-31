@@ -13,6 +13,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     [SerializeField] private int _OPObjectCount;
     [SerializeField] private int _xDÝstance, _zDÝstance;
     [SerializeField] private float _objectPlacementTime;
+    [SerializeField] private float _scale;
 
     public void StartRandomSystem()
     {
@@ -98,7 +99,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
             objectID.lineCount = tempX;
             objectID.ColumnCount = tempZ;
             ObjectGrid[tempX, tempZ] = true;
-            obj.transform.position = new Vector3(objectPosTemplate.transform.position.x + tempX, objectPosTemplate.transform.position.y, objectPosTemplate.transform.position.z + tempZ);
+            obj.transform.position = new Vector3(objectPosTemplate.transform.position.x + tempX * _scale, objectPosTemplate.transform.position.y, objectPosTemplate.transform.position.z + tempZ * _scale);
         }
         else
             ObjectPositionPlacement(obj, objectPosTemplate, xDistance, zDistance);
