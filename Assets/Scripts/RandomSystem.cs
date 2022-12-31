@@ -85,9 +85,9 @@ public class RandomSystem : MonoSingleton<RandomSystem>
         objectID.objectID = ID;
         objectID.ListCount = objects.Count - 1;
     }
-    private void ObjectPositionPlacement(GameObject obj, GameObject objectPosTemplate, int xDÝstance, int zDistance)
+    private void ObjectPositionPlacement(GameObject obj, GameObject objectPosTemplate, int xDistance, int zDistance)
     {
-        int tempX = Random.Range(0, xDÝstance);
+        int tempX = Random.Range(0, xDistance);
         int tempZ = Random.Range(0, zDistance);
         bool isFull = false;
         if (ObjectGrid[tempX, tempZ] == true)
@@ -101,7 +101,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
             obj.transform.position = new Vector3(objectPosTemplate.transform.position.x + tempX, objectPosTemplate.transform.position.y, objectPosTemplate.transform.position.z + tempZ);
         }
         else
-            ObjectPositionPlacement(obj, objectPosTemplate, xDÝstance, zDistance);
+            ObjectPositionPlacement(obj, objectPosTemplate, xDistance, zDistance);
     }
     private void AddListInt(int ID, int Count, List<int> ObjectTypeInt, List<int> ObjectCountInt)
     {
