@@ -63,6 +63,11 @@ public class MarketSystem : MonoSingleton<MarketSystem>
         marketPanel.SetActive(false);
     }
 
+    public void FinishGameBackToTheMaterial()
+    {
+        _mainPlayer.GetComponent<MeshRenderer>().material = fieldPlayerColor.PlayerColorMaterial[fieldBool.equipedCount];
+    }
+
     private void SelectMarketPlayerColorFieldButton(int count)
     {
         fieldCount = count;

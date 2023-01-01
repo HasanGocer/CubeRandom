@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelSystem : MonoSingleton<LevelSystem>
 {
     [SerializeField] private int randomCountMod, ObjectCountMod, rivalMaxPowerMod;
+    public bool newObjectTime;
 
     public void NewLevelCheckField()
     {
@@ -16,7 +17,7 @@ public class LevelSystem : MonoSingleton<LevelSystem>
         {
             ýtemData.SetBarHealth();
             ýtemData.SetObjectTypeCount();
-            ObjectOpenSystem.Instance.NewObjectOpenPanel();
+            newObjectTime = true;
         }
         if (gameManager.level >= randomCountMod * factor.objectCount)
             ýtemData.SetObjectCount();

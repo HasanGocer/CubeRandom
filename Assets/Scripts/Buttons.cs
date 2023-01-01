@@ -94,8 +94,13 @@ public class Buttons : MonoSingleton<Buttons>
         BarSystem.Instance.BarStopButton();
         winButton.enabled = false;
         _winPrizeButton.enabled = false;
+        MarketSystem.Instance.FinishGameBackToTheMaterial();
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(0);
+        if (!LevelSystem.Instance.newObjectTime)
+            SceneManager.LoadScene(0);
+        else
+            ObjectOpenSystem.Instance.NewObjectOpenPanel();
+
     }
     private IEnumerator WinButton()
     {
@@ -103,8 +108,12 @@ public class Buttons : MonoSingleton<Buttons>
         LevelSystem.Instance.NewLevelCheckField();
         winButton.enabled = false;
         _winPrizeButton.enabled = false;
+        MarketSystem.Instance.FinishGameBackToTheMaterial();
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(0);
+        if (!LevelSystem.Instance.newObjectTime)
+            SceneManager.LoadScene(0);
+        else
+            ObjectOpenSystem.Instance.NewObjectOpenPanel();
     }
     private void FailButton()
     {
