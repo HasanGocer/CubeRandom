@@ -95,6 +95,7 @@ public class Buttons : MonoSingleton<Buttons>
         winButton.enabled = false;
         _winPrizeButton.enabled = false;
         MarketSystem.Instance.FinishGameBackToTheMaterial();
+        Vibration.Vibrate(30);
         yield return new WaitForSeconds(3);
         if (!LevelSystem.Instance.newObjectTime)
             SceneManager.LoadScene(0);

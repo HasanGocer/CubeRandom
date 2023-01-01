@@ -8,11 +8,10 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
     [SerializeField] private GameObject FinishParticalPos;
     [SerializeField] private GameObject comboUI;
 
-    public IEnumerator NewObjectPartical(GameObject pos, GameObject parent)
+    public IEnumerator NewObjectPartical()
     {
         GameObject part = ObjectPool.Instance.GetPooledObject(_OPNewObjectParticalCount);
-        part.transform.SetParent(parent.transform);
-        part.transform.position = pos.transform.position;
+        part.transform.position = FinishParticalPos.transform.position;
         yield return new WaitForSeconds(3);
     }
 
@@ -34,6 +33,5 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
             part.transform.position = FinishParticalPos.transform.position;
             yield return new WaitForSeconds(0.2f);
         }
-
     }
 }

@@ -20,7 +20,7 @@ public class ObjectOpenSystem : MonoSingleton<ObjectOpenSystem>
         newImagePanel.SetActive(true);
         Buttons.Instance.winPanel.SetActive(false);
         StartCoroutine(BackgroundFlip.Instance.Flip());
-        StartCoroutine(ParticalSystem.Instance.NewObjectPartical(mainImage.gameObject, mainImage.gameObject));
+        StartCoroutine(ParticalSystem.Instance.NewObjectPartical());
     }
 
     public IEnumerator NewImageButton()
