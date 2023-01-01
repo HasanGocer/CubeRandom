@@ -13,7 +13,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
 
     public void StartFightBar()
     {
-        BarUpdate(playerScore, bar);
+        BarUpdate(playerScore);
         StartCoroutine(RivalHitEnum(rivalHitTime, rivalMaxHit));
     }
 
@@ -57,7 +57,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 playerScore = 0;
             }
         }
-        BarUpdate(maxScore, bar);
+        BarUpdate(maxScore);
     }
     private void PlayerScoreAddBar(int plus, int maxScore, Image bar)
     {
@@ -74,9 +74,9 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 rivalScore = 0;
             }
         }
-        BarUpdate(maxScore, bar);
+        BarUpdate(maxScore);
     }
-    private void BarUpdate(int maxScore, Image bar)
+    private void BarUpdate(int maxScore)
     {
         if (playerScore > 0)
         {
@@ -87,7 +87,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 Buttons.Instance.winPanel.SetActive(true);
                 StartCoroutine(Buttons.Instance.NoThanxOnActive());
                 StartCoroutine(ParticalSystem.Instance.FinishTimePartical());
-                Buttons.Instance.finishGameMoneyText.text = GameManager.Instance.addedMoney.ToString();
+                Buttons.Instance.finishGameMoneyText.text = MoneySystem.Instance.NumberTextRevork(GameManager.Instance.addedMoney);
                 StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
                 GameManager.Instance.isStart = false;
                 RandomSystem.Instance.AllObjectCallBack();
