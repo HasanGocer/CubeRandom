@@ -76,12 +76,14 @@ public class Draw : MonoBehaviour
                             }
                         }
                         break;
+                    case TouchPhase.Ended:
+                        EndTouch(true);
+                        break;
                 }
             }
             yield return new WaitForEndOfFrame();
         }
         EndTouch(true);
-
     }
 
     public void EndTouch(bool isTrueFinish)
