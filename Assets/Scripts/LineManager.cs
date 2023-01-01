@@ -18,10 +18,11 @@ public class LineManager : MonoSingleton<LineManager>
             Objects[0].GetComponent<Draw>().LineRendererCanceled();
             for (int i = limit; i >= 0; i--)
             {
+                print(i);
                 Objects[i].gameObject.layer = default;
                 Objects[i].GetComponent<LineTouch>().addedLineManger = false;
-                Objects.RemoveAt(i);
             }
+            Objects.Clear();
             this.ID = -1;
         }
     }
@@ -77,5 +78,6 @@ public class LineManager : MonoSingleton<LineManager>
         {
             LineGOs[i].SetActive(false);
         }
+        LineGOs.Clear();
     }
 }

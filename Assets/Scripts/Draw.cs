@@ -36,6 +36,7 @@ public class Draw : MonoBehaviour
                 lr.enabled = true;
                 touchStartedOnPlayer = true;
                 lr.positionCount = 2;
+                firstTouch();
                 lr.SetPosition(0, lineStartPos.transform.position);
                 lr.SetPosition(1, lineStartPos.transform.position);
                 drawLine = true;
@@ -47,7 +48,7 @@ public class Draw : MonoBehaviour
     {
         while (touchStartedOnPlayer && !oneTap)
         {
-            if (Input.touchCount > 0 && GameManager.Instance.isStart)
+            if (Input.touchCount > 0 && GameManager.Instance.isStart && !oneTap)
             {
                 touch = Input.GetTouch(0);
                 switch (touch.phase)
@@ -77,13 +78,13 @@ public class Draw : MonoBehaviour
                         }
                         break;
                     case TouchPhase.Ended:
-                        EndTouch(true);
+                        if (!oneTap)
+                            EndTouch(true);
                         break;
                 }
             }
             yield return new WaitForEndOfFrame();
         }
-        EndTouch(true);
     }
 
     public void EndTouch(bool isTrueFinish)
@@ -113,5 +114,23 @@ public class Draw : MonoBehaviour
         lr.SetPosition(1, lineStartPos.transform.position);
         wayIndex = 1;
         lr.enabled = false;
+    }
+
+    public void firstTouch()
+    {
+        RandomSystem.Instance.ObjectShake(this.gameObject);
+
+        LineManager lineManager = LineManager.Instance;
+        lineManager.ID = GetComponent<ObjectID>().objectID;
+        LineTouch lineTouch = GetComponent<LineTouch>();
+        LineRenderer lr = GetComponent<LineRenderer>();
+        Draw draw = GetComponent<Draw>();
+
+        lineTouch.addedLineManger = true;
+        lineManager.Objects.Add(this.gameObject);
+        this.gameObject.layer = 6;
+        GameObject objpos = lineManager.Objects[lineManager.Objects.Count - 1];
+        DrawLine();
+        lr.SetPosition(draw.wayIndex, new Vector3(objpos.transform.position.x, objpos.transform.position.y + 1, objpos.transform.position.z));
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelSystem : MonoSingleton<LevelSystem>
 {
     [SerializeField] private int randomCountMod, ObjectCountMod, rivalMaxPowerMod;
-    public bool newObjectTime;
+    public bool newObjectTime = false;
 
     public void NewLevelCheckField()
     {
