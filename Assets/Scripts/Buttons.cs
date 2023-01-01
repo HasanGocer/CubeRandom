@@ -31,6 +31,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void Start()
     {
+        GameObject.FindObjectOfType<AdManager>().InitializeAds();
         ButtonPlacement();
         SettingPlacement();
         levelText.text = GameManager.Instance.level.ToString();
@@ -88,6 +89,7 @@ public class Buttons : MonoSingleton<Buttons>
         FightBarSystem.Instance.StartFightBar();
         AnimControl.Instance.StartAnimencer();
         FightBarSystem.Instance.StartBarPanel();
+        AdManager.current.bannerView.Hide();
     }
     private IEnumerator WinPrizeButton()
     {
