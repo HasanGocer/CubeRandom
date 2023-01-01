@@ -8,7 +8,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     public List<GameObject> ObjectList = new List<GameObject>();
     public List<int> ObjectTypeInt = new List<int>();
     public List<int> ObjectCountInt = new List<int>();
-    public bool[,] ObjectGrid = new bool[10, 10];
+    public bool[,] ObjectGrid = new bool[7, 7];
     [SerializeField] private GameObject _objectPosTemplate;
     [SerializeField] private int _OPObjectCount;
     [SerializeField] private int _xDÝstance, _zDÝstance;
@@ -38,7 +38,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
     {
         while (true)
         {
-            if (ItemData.Instance.field.objectCount >= objects.Count)
+            if (ItemData.Instance.field.objectCount > objects.Count / 4)
             {
                 int ID = IDSelect(maxObjectCount);
                 for (int i1 = 0; i1 < 4; i1++)

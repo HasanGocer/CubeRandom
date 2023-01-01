@@ -78,6 +78,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void StartButton()
     {
+        GridReset.Instance.startButton();
         MarketSystem.Instance.GameStart();
         _startObject1.SetActive(true);
         _startPanel.SetActive(false);

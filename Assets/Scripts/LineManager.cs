@@ -30,7 +30,7 @@ public class LineManager : MonoSingleton<LineManager>
     {
         CheckObject();
         StartCoroutine(AnimControl.Instance.CallHitPlayer(ID % 3));
-        FightBarSystem.Instance.PlayerScoreAdd(ID * Objects.Count * 3);
+        FightBarSystem.Instance.PlayerScoreAdd(ID * Objects.Count * 2);
         GameManager.Instance.addedMoney += ID * Objects.Count * 3;
         int limit = Objects.Count;
         Vibration.Vibrate(30);
