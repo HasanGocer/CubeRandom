@@ -53,7 +53,7 @@ public class Draw : MonoBehaviour
                 switch (touch.phase)
                 {
                     case TouchPhase.Moved:
-                        if ( touchStartedOnPlayer)
+                        if (touchStartedOnPlayer)
                         {
                             Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100));
                             Vector3 direction = worldFromMousePos - Camera.main.transform.position;
@@ -76,13 +76,11 @@ public class Draw : MonoBehaviour
                             }
                         }
                         break;
-                    case TouchPhase.Ended:
-                        EndTouch(true);
-                        break;
                 }
             }
             yield return new WaitForEndOfFrame();
         }
+        EndTouch(true);
 
     }
 
