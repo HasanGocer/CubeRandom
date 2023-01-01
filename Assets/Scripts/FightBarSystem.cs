@@ -8,11 +8,17 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
     [SerializeField] private int playerScore, rivalScore;
     public int rivalMaxHit, rivalHitTime;
     [SerializeField] private Image bar;
+    [SerializeField] private GameObject barPanel;
 
     public void StartFightBar()
     {
         BarUpdate(playerScore, bar);
         StartCoroutine(RivalHitEnum(rivalHitTime, rivalMaxHit));
+    }
+
+    public void StartBarPanel()
+    {
+        barPanel.SetActive(true);
     }
 
     public IEnumerator RivalHitEnum(int waitTime, int plusMaxRange)

@@ -15,9 +15,11 @@ public class ObjectOpenSystem : MonoSingleton<ObjectOpenSystem>
 
     public void NewObjectOpenPanel()
     {
-        mainImage.sprite = ObjectImage[ItemData.Instance.field.ObjectTypeCount];
+        mainImage.sprite = ObjectImage[ItemData.Instance.field.ObjectTypeCount - 1];
         newImagePanel.SetActive(true);
         Buttons.Instance.winPanel.SetActive(false);
+        StartCoroutine(BackgroundFlip.Instance.Flip());
+        StartCoroutine(ParticalSystem.Instance.NewObjectPartical(mainImage.gameObject, mainImage.gameObject));
     }
 
     public IEnumerator NewImageButton()

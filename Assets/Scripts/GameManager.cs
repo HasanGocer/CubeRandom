@@ -26,6 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
             money = PlayerPrefs.GetInt("money");
         else
             PlayerPrefs.SetInt("money", 100);
+        MoneySystem.Instance.MoneyTextRevork(0);
 
         if (PlayerPrefs.HasKey("vibration"))
             vibration = PlayerPrefs.GetInt("vibration");
@@ -52,6 +53,7 @@ public class GameManager : MonoSingleton<GameManager>
         MarketSystem.Instance.fieldBool = MarketPlacementRead();
         ItemData.Instance.factor = FactorPlacementRead();
         ItemData.Instance.IDAwake();
+        ObjectOpenSystem.Instance.NewObjectOpenPanel();
     }
 
     public void FactorPlacementWrite(ItemData.Field factor)

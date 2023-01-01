@@ -34,7 +34,6 @@ public class Buttons : MonoSingleton<Buttons>
         ButtonPlacement();
         SettingPlacement();
         levelText.text = GameManager.Instance.level.ToString();
-        moneyText.text = GameManager.Instance.money.ToString();
     }
     public IEnumerator NoThanxOnActive()
     {
@@ -87,6 +86,7 @@ public class Buttons : MonoSingleton<Buttons>
         RandomSystem.Instance.StartRandomSystem();
         FightBarSystem.Instance.StartFightBar();
         AnimControl.Instance.StartAnimencer();
+        FightBarSystem.Instance.StartBarPanel();
     }
     private IEnumerator WinPrizeButton()
     {

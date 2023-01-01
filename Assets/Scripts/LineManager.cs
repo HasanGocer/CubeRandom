@@ -33,6 +33,7 @@ public class LineManager : MonoSingleton<LineManager>
         FightBarSystem.Instance.PlayerScoreAdd(ID * Objects.Count * 3);
         GameManager.Instance.addedMoney += ID * Objects.Count * 3;
         int limit = Objects.Count;
+        Vibration.Vibrate(30);
         for (int i = limit - 1; i >= 0; i--)
         {
             Objects[i].GetComponent<Draw>().LineRendererCanceled();

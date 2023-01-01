@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class ParticalSystem : MonoSingleton<ParticalSystem>
 {
-    [SerializeField] private int _OPforthParticalCount, _OPfinishParticalCount;
+    [SerializeField] private int _OPforthParticalCount, _OPfinishParticalCount, _OPNewObjectParticalCount;
     [SerializeField] private GameObject FinishParticalPos;
     [SerializeField] private GameObject comboUI;
+
+    public IEnumerator NewObjectPartical(GameObject pos, GameObject parent)
+    {
+        GameObject part = ObjectPool.Instance.GetPooledObject(_OPNewObjectParticalCount);
+        part.transform.SetParent(parent.transform);
+        part.transform.position = pos.transform.position;
+        yield return new WaitForSeconds(3);
+    }
 
     public IEnumerator ForthObjectPartical(GameObject pos)
     {
