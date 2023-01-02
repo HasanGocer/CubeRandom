@@ -85,6 +85,7 @@ public class RandomSystem : MonoSingleton<RandomSystem>
 
         objectID.objectID = ID;
         objectID.ListCount = objects.Count - 1;
+        obj.layer = default;
     }
     private void ObjectPositionPlacement(GameObject obj, GameObject objectPosTemplate, int xDistance, int zDistance)
     {
