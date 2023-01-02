@@ -97,6 +97,7 @@ public class Buttons : MonoSingleton<Buttons>
     {
         if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
         {
+            SoundSystem.Instance.CallEffectFinish();
             AdManager.Instance.interstitial.Show();
             BarSystem.Instance.BarStopButton();
             winButton.enabled = false;
@@ -112,6 +113,7 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private IEnumerator WinButton()
     {
+        SoundSystem.Instance.CallEffectFinish();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         LevelSystem.Instance.NewLevelCheckField();
         winButton.enabled = false;
@@ -127,6 +129,7 @@ public class Buttons : MonoSingleton<Buttons>
     {
         if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
             AdManager.Instance.interstitial.Show();
+        SoundSystem.Instance.CallEffectFail();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         SceneManager.LoadScene(0);
     }
