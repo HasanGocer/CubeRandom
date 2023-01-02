@@ -20,7 +20,7 @@ public class AnimControl : MonoSingleton<AnimControl>
     {
         enemyAnim.Play(boxing1, 0.3f);
         yield return new WaitForSeconds(0.55f);
-        ParticalSystem.Instance.CallHitCharacter(false, count);
+        StartCoroutine(ParticalSystem.Instance.CallHitCharacter(false, count));
         if (GameManager.Instance.isStart)
             mainAnim.Play(beating1, 0.1f);
         yield return new WaitForSeconds(1f);
@@ -43,7 +43,7 @@ public class AnimControl : MonoSingleton<AnimControl>
             mainAnim.Play(kick2, 0.3f);
 
         yield return new WaitForSeconds(0.55f);
-        ParticalSystem.Instance.CallHitCharacter(true, count);
+        StartCoroutine(ParticalSystem.Instance.CallHitCharacter(true, count));
         if (GameManager.Instance.isStart)
             enemyAnim.Play(beating2, 0.1f);
         yield return new WaitForSeconds(1f);

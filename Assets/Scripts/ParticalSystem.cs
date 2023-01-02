@@ -24,25 +24,27 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         GameObject part = ObjectPool.Instance.GetPooledObject(_OPHitCharacterParticalCount);
         if (hitMain)
         {
-            StartCoroutine(PointText.Instance.CallPointText(rivalHead, count));
+            StartCoroutine(PointText.Instance.CallPointText(rivalHead.transform.position, count));
             part.transform.position = rivalHead.transform.position;
         }
         else
         {
-            StartCoroutine(PointText.Instance.CallPointText(mainHead, count));
+            StartCoroutine(PointText.Instance.CallPointText(mainHead.transform.position, count));
             part.transform.position = mainHead.transform.position;
         }
         yield return new WaitForSeconds(0.3f);
         ObjectPool.Instance.AddObject(_OPHitCharacterParticalCount, part);
     }
 
-    public IEnumerator ForthObjectPartical(GameObject pos)
+    public IEnumerator ForthObjectPartical(GameObject pos, int count)
     {
         GameObject part = ObjectPool.Instance.GetPooledObject(_OPforthParticalCount);
         part.transform.position = pos.transform.position;
-        comboUI.SetActive(true);
+        if (count >= 8)
+            comboUI.SetActive(true);
         yield return new WaitForSeconds(3);
-        comboUI.SetActive(false);
+        if (count >= 8)
+            comboUI.SetActive(false);
         ObjectPool.Instance.AddObject(_OPforthParticalCount, part);
     }
 

@@ -114,6 +114,7 @@ public class Draw : MonoBehaviour
         lr.SetPosition(1, lineStartPos.transform.position);
         wayIndex = 1;
         lr.enabled = false;
+        this.gameObject.layer = default;
     }
 
     public void firstTouch()
