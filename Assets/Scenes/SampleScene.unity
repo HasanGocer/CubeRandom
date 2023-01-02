@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139305, b: 0.49600944, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9558,10 +9558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe7689bbcfc0534986d0777ee44528c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OPPointTextInt: 0
-  textMoveTime: 0
-  countTextJumpDistance: 0
-  moveEaseType: 0
+  _OPPointTextInt: 0
 --- !u!114 &1306721461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10608,6 +10605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1402781066}
   - component: {fileID: 1402781067}
+  - component: {fileID: 1402781068}
   m_Layer: 0
   m_Name: AnimationManager
   m_TagString: Untagged
@@ -10655,6 +10653,19 @@ MonoBehaviour:
   "\u0131dle": {fileID: -203655887218126122, guid: f11f8d098aba1c747aa98976b941635b, type: 3}
   _deadPlayerMaterial: {fileID: 2100000, guid: f4ee79fa581b70e4686fd5c795fdcc2b, type: 2}
   finishHim: {fileID: 2137977316}
+--- !u!114 &1402781068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402781065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe7689bbcfc0534986d0777ee44528c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _OPPointTextInt: 5
 --- !u!1 &1429351526
 GameObject:
   m_ObjectHideFlags: 0
@@ -12577,7 +12588,6 @@ GameObject:
   - component: {fileID: 1568266403}
   - component: {fileID: 1568266402}
   - component: {fileID: 1568266401}
-  - component: {fileID: 1568266407}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12638,26 +12648,30 @@ MonoBehaviour:
     poolSize: 200
   - objectPrefab: {fileID: 164112, guid: a54f4434684ca0143bf644289de35374, type: 3}
     poolSize: 10
+  - objectPrefab: {fileID: 0}
+    poolSize: 50
+  - objectPrefab: {fileID: 6212779207743706348, guid: 71ac65a1535b94a43abf8cc3569a44ee, type: 3}
+    poolSize: 50
   - objectPrefab: {fileID: 1365534754294002, guid: 699b091cdfac2634fa1238fdd9d076fa, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1562484072896606, guid: abc74fa5a8c17094abef71b0f27a82dc, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1497565848121274, guid: cac8b14e36b5626448770f4d2804d497, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1061527629812338, guid: d201b2382d8b64e45a8979524707b60c, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1065019472851070, guid: c79c9aead1842e1498cdf17dd28a5c5d, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1780487806124480, guid: 413a57c9e837d004a892fdf96130c1e9, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1695697469099868, guid: a5cab1ad9c944664d996dc940bf39280, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1491063698147782, guid: 2ed1ab7b56565b14880988c041773e85, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1669795537820986, guid: d702491e6e54c0f4c8b40c7723388407, type: 3}
-    poolSize: 200
+    poolSize: 50
   - objectPrefab: {fileID: 1297686608631222, guid: fc3ca7ef8636a454b8b482e92e0ffa61, type: 3}
-    poolSize: 200
+    poolSize: 50
 --- !u!114 &1568266403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12724,19 +12738,6 @@ MonoBehaviour:
   researchPoint: 0
   vibration: 0
   sound: 0
---- !u!114 &1568266407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568266399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84ea7e11093c504e8c872fa4e30c89c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinishCheckBool: 
 --- !u!1 &1569160829
 GameObject:
   m_ObjectHideFlags: 0
@@ -14838,8 +14839,11 @@ MonoBehaviour:
   _OPforthParticalCount: 0
   _OPfinishParticalCount: 1
   _OPNewObjectParticalCount: 3
+  _OPHitCharacterParticalCount: 4
   FinishParticalPos: {fileID: 1587743641}
   comboUI: {fileID: 673243364}
+  rivalHead: {fileID: 955771032}
+  mainHead: {fileID: 110182377809244800}
 --- !u!1 &1927258236
 GameObject:
   m_ObjectHideFlags: 0
@@ -15263,7 +15267,7 @@ MonoBehaviour:
   ObjectTypeInt: 
   ObjectCountInt: 
   _objectPosTemplate: {fileID: 1647317003}
-  _OPObjectCount: 4
+  _OPObjectCount: 6
   "_xD\u0130stance": 7
   "_zD\u0130stance": 7
   _objectPlacementTime: 0.1

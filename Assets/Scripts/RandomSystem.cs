@@ -120,7 +120,6 @@ public class RandomSystem : MonoSingleton<RandomSystem>
         {
             ObjectTypeInt.Add(ID);
             ObjectCountInt.Add(Count);
-            FinishSystem.Instance.FinishCheckBool.Add(false);
         }
     }
 }

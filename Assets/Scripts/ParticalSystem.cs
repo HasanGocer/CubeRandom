@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class ParticalSystem : MonoSingleton<ParticalSystem>
 {
-    [SerializeField] private int _OPforthParticalCount, _OPfinishParticalCount, _OPNewObjectParticalCount;
+    [SerializeField] private int _OPforthParticalCount, _OPfinishParticalCount, _OPNewObjectParticalCount, _OPHitCharacterParticalCount;
     [SerializeField] private GameObject FinishParticalPos;
     [SerializeField] private GameObject comboUI;
+    [SerializeField] private GameObject rivalHead, mainHead;
 
     public IEnumerator NewObjectPartical()
     {
-        GameObject part = ObjectPool.Instance.GetPooledObject(_OPNewObjectParticalCount);
-        part.transform.position = FinishParticalPos.transform.position;
-        yield return new WaitForSeconds(3);
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject part = ObjectPool.Instance.GetPooledObject(_OPNewObjectParticalCount);
+            part.transform.position = FinishParticalPos.transform.position;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    public IEnumerator CallHitCharacter(bool hitMain, int count)
+    {
+        GameObject part = ObjectPool.Instance.GetPooledObject(_OPHitCharacterParticalCount);
+        if (hitMain)
+        {
+            StartCoroutine(PointText.Instance.CallPointText(rivalHead, count));
+            part.transform.position = rivalHead.transform.position;
+        }
+        else
+        {
+            StartCoroutine(PointText.Instance.CallPointText(mainHead, count));
+            part.transform.position = mainHead.transform.position;
+        }
+        yield return new WaitForSeconds(0.3f);
+        ObjectPool.Instance.AddObject(_OPHitCharacterParticalCount, part);
     }
 
     public IEnumerator ForthObjectPartical(GameObject pos)

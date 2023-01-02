@@ -32,22 +32,22 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         while (GameManager.Instance.isStart)
         {
             yield return new WaitForSeconds(waitTime);
-            if (GameManager.Instance.isStart)
-                StartCoroutine(AnimControl.Instance.CallHitRival());
             int count = Random.Range(1, plusMaxRange);
             RivalScoreAdd(count);
+            if (GameManager.Instance.isStart)
+                StartCoroutine(AnimControl.Instance.CallHitRival(count));
         }
     }
     public void PlayerScoreAdd(int plus)
     {
-        PlayerScoreAddBar(plus, ItemData.Instance.field.barHealth, bar);
+        PlayerScoreAddBar(plus, ItemData.Instance.field.barHealth);
     }
     public void RivalScoreAdd(int plus)
     {
-        RivalScoreAddBar(plus, ItemData.Instance.field.barHealth, bar);
+        RivalScoreAddBar(plus, ItemData.Instance.field.barHealth);
     }
 
-    private void RivalScoreAddBar(int plus, int maxScore, Image bar)
+    private void RivalScoreAddBar(int plus, int maxScore)
     {
         if (rivalScore > 0 || playerScore == 0)
         {
@@ -64,7 +64,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         }
         BarUpdate(maxScore);
     }
-    private void PlayerScoreAddBar(int plus, int maxScore, Image bar)
+    private void PlayerScoreAddBar(int plus, int maxScore)
     {
         if (playerScore > 0 || rivalScore == 0)
         {
