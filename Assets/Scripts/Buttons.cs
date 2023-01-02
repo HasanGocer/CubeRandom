@@ -135,12 +135,14 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private void SettingButton()
     {
+        _startPanel.SetActive(false);
         _settingGame.SetActive(true);
         _settingButton.gameObject.SetActive(false);
         _money.SetActive(false);
     }
     private void SettingBackButton()
     {
+        _startPanel.SetActive(true);
         _settingGame.SetActive(false);
         _settingButton.gameObject.SetActive(true);
         _money.SetActive(true);

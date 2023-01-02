@@ -25,12 +25,12 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         if (hitMain)
         {
             StartCoroutine(PointText.Instance.CallPointText(rivalHead.transform.position, count));
-            part.transform.position = rivalHead.transform.position;
+            part.transform.position = new Vector3(rivalHead.transform.position.x, rivalHead.transform.position.y, rivalHead.transform.position.z + 0.4f);
         }
         else
         {
             StartCoroutine(PointText.Instance.CallPointText(mainHead.transform.position, count));
-            part.transform.position = mainHead.transform.position;
+            part.transform.position = new Vector3(mainHead.transform.position.x, mainHead.transform.position.y, mainHead.transform.position.z + 0.4f);
         }
         yield return new WaitForSeconds(0.3f);
         ObjectPool.Instance.AddObject(_OPHitCharacterParticalCount, part);

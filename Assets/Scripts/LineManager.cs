@@ -30,10 +30,10 @@ public class LineManager : MonoSingleton<LineManager>
     public void CubesBlast()
     {
         CheckObject();
-        StartCoroutine(AnimControl.Instance.CallHitPlayer(ID % 4, ID * Objects.Count));
-        FightBarSystem.Instance.PlayerScoreAdd(ID * Objects.Count);
-        GameManager.Instance.addedMoney += ID * Objects.Count * 3;
         int limit = Objects.Count;
+        StartCoroutine(AnimControl.Instance.CallHitPlayer(ID % 4, ID * limit));
+        FightBarSystem.Instance.PlayerScoreAdd(ID * limit);
+        GameManager.Instance.addedMoney += ID * limit * 3;
         Vibration.Vibrate(30);
         for (int i = limit - 1; i >= 0; i--)
         {
