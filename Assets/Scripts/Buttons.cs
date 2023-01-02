@@ -47,11 +47,12 @@ public class Buttons : MonoSingleton<Buttons>
         if (GameManager.Instance.sound == 1)
         {
             _soundButton.gameObject.GetComponent<Image>().sprite = _green;
-            // SoundSystem.Instance.MainMusicPlay();
+            SoundSystem.Instance.MainMusicPlay();
         }
         else
         {
             _soundButton.gameObject.GetComponent<Image>().sprite = _red;
+            SoundSystem.Instance.MainMusicStop();
         }
 
         if (GameManager.Instance.vibration == 1)
@@ -79,6 +80,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void StartButton()
     {
+        SoundSystem.Instance.CallEffectStart();
         GridReset.Instance.startButton();
         MarketSystem.Instance.GameStart();
         _startObject1.SetActive(true);
@@ -93,17 +95,20 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private IEnumerator WinPrizeButton()
     {
-        BarSystem.Instance.BarStopButton();
-        winButton.enabled = false;
-        _winPrizeButton.enabled = false;
-        MarketSystem.Instance.FinishGameBackToTheMaterial();
-        Vibration.Vibrate(30);
-        yield return new WaitForSeconds(3);
-        if (!LevelSystem.Instance.newObjectTime)
-            SceneManager.LoadScene(0);
-        else
-            ObjectOpenSystem.Instance.NewObjectOpenPanel();
-
+        if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
+        {
+            AdManager.Instance.interstitial.Show();
+            BarSystem.Instance.BarStopButton();
+            winButton.enabled = false;
+            _winPrizeButton.enabled = false;
+            MarketSystem.Instance.FinishGameBackToTheMaterial();
+            Vibration.Vibrate(30);
+            yield return new WaitForSeconds(3);
+            if (!LevelSystem.Instance.newObjectTime)
+                SceneManager.LoadScene(0);
+            else
+                ObjectOpenSystem.Instance.NewObjectOpenPanel();
+        }
     }
     private IEnumerator WinButton()
     {
@@ -120,6 +125,8 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private void FailButton()
     {
+        if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
+            AdManager.Instance.interstitial.Show();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         SceneManager.LoadScene(0);
     }

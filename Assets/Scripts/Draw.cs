@@ -118,6 +118,7 @@ public class Draw : MonoBehaviour
 
     public void firstTouch()
     {
+        SoundSystem.Instance.CallEffectTouch();
         RandomSystem.Instance.ObjectShake(this.gameObject);
 
         LineManager lineManager = LineManager.Instance;

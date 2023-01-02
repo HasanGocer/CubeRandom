@@ -83,6 +83,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f + (((float)playerScore / (float)maxScore) / 2);
             if (count >= 1)
             {
+                SoundSystem.Instance.CallEffectFinish();
                 GridReset.Instance.finishGame();
                 Buttons.Instance.winPanel.SetActive(true);
                 StartCoroutine(Buttons.Instance.NoThanxOnActive());
@@ -106,6 +107,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f - (((float)rivalScore / (float)maxScore) / 2);
             if (count <= 0)
             {
+                SoundSystem.Instance.CallEffectFail();
                 GridReset.Instance.finishGame();
                 Buttons.Instance.failPanel.SetActive(true);
                 GameManager.Instance.isStart = false;
