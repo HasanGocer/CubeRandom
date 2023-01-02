@@ -51,9 +51,9 @@ public class LineManager : MonoSingleton<LineManager>
         LineGOsDelete();
         if (Objects.Count >= 3 && isTrueFinish)
         {
-            CubesBlast();
             if (Objects.Count >= 4)
                 StartCoroutine(ParticalSystem.Instance.ForthObjectPartical(Objects[0].gameObject));
+            CubesBlast();
         }
         else
         {

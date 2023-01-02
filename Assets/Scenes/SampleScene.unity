@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139305, b: 0.49600944, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10648,7 +10648,7 @@ MonoBehaviour:
   boxing2: {fileID: -203655887218126122, guid: 9974925553bc7284983c30cd6a3c93df, type: 3}
   beating1: {fileID: -203655887218126122, guid: ca9f9634720d9cf409b4121015f82698, type: 3}
   beating2: {fileID: -203655887218126122, guid: 2b8537eaae355084abf5c5bd3e695ed2, type: 3}
-  kick1: {fileID: -203655887218126122, guid: 4d4179c2c6d32084bab5f99464ccb334, type: 3}
+  kick1: {fileID: -203655887218126122, guid: 210bd915b5586d0458b71b4d18fc6ff0, type: 3}
   kick2: {fileID: -203655887218126122, guid: bb128cf53da3d6b448cf311c8b85079b, type: 3}
   death: {fileID: -203655887218126122, guid: 5e55f8405623cc0459e22339ef30a18a, type: 3}
   win: {fileID: -203655887218126122, guid: 5c7de6da51568fd48a4ca7db7fafd7c4, type: 3}
@@ -12630,10 +12630,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - objectPrefab: {fileID: 1730680232597524, guid: 5a3c9da90a2a4ea4692cee3096b94082, type: 3}
+  - objectPrefab: {fileID: 1932552764689772, guid: 55c7caedf64d935419e00dac831d338a, type: 3}
     poolSize: 20
   - objectPrefab: {fileID: 1575721338728490, guid: 4171bb92c5c591848b14be1db6f3efe2, type: 3}
-    poolSize: 12
+    poolSize: 21
   - objectPrefab: {fileID: 5754823548554743092, guid: 00f548c0b69454843898f84bb3202c94, type: 3}
     poolSize: 200
   - objectPrefab: {fileID: 164112, guid: a54f4434684ca0143bf644289de35374, type: 3}

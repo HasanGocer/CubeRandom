@@ -119,7 +119,7 @@ public class Buttons : MonoSingleton<Buttons>
         winButton.enabled = false;
         _winPrizeButton.enabled = false;
         MarketSystem.Instance.FinishGameBackToTheMaterial();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.3f);
         if (!LevelSystem.Instance.newObjectTime)
             SceneManager.LoadScene(0);
         else

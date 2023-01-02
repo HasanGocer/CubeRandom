@@ -27,7 +27,7 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
 
     public IEnumerator FinishTimePartical()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 7; i++)
         {
             GameObject part = ObjectPool.Instance.GetPooledObject(_OPfinishParticalCount);
             part.transform.position = FinishParticalPos.transform.position;

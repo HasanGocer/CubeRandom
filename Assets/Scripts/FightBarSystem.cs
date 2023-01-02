@@ -22,6 +22,11 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
         barPanel.SetActive(true);
     }
 
+    public void FinishBarPanel()
+    {
+        barPanel.SetActive(false);
+    }
+
     public IEnumerator RivalHitEnum(int waitTime, int plusMaxRange)
     {
         while (GameManager.Instance.isStart)
@@ -83,6 +88,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f + (((float)playerScore / (float)maxScore) / 2);
             if (count >= 1)
             {
+                FinishBarPanel();
                 SoundSystem.Instance.CallEffectFinish();
                 GridReset.Instance.finishGame();
                 Buttons.Instance.winPanel.SetActive(true);
@@ -107,6 +113,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f - (((float)rivalScore / (float)maxScore) / 2);
             if (count <= 0)
             {
+                FinishBarPanel();
                 SoundSystem.Instance.CallEffectFail();
                 GridReset.Instance.finishGame();
                 Buttons.Instance.failPanel.SetActive(true);
