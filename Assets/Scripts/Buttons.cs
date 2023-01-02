@@ -89,7 +89,7 @@ public class Buttons : MonoSingleton<Buttons>
         FightBarSystem.Instance.StartFightBar();
         AnimControl.Instance.StartAnimencer();
         FightBarSystem.Instance.StartBarPanel();
-        AdManager.current.bannerView.Hide();
+        AdManager.Instance.bannerView.Hide();
     }
     private IEnumerator WinPrizeButton()
     {

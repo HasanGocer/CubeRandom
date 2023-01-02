@@ -1616,7 +1616,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 204792344}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1641,7 +1641,7 @@ RectTransform:
   m_Children:
   - {fileID: 742922920}
   m_Father: {fileID: 1122538539}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1817,12 +1817,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 480947512}
-  m_RootOrder: 0
+  m_Father: {fileID: 1122538539}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -32}
+  m_AnchoredPosition: {x: -0.00000095367, y: 0}
   m_SizeDelta: {x: 780.93, y: 1007.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223656644
@@ -3195,14 +3195,13 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 223656643}
+  m_Children: []
   m_Father: {fileID: 1122538539}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 39.882}
+  m_AnchoredPosition: {x: -0.00000095367, y: 0.000015258789}
   m_SizeDelta: {x: 802.93, y: 1007.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480947513
@@ -7885,13 +7884,14 @@ RectTransform:
   m_Children:
   - {fileID: 1022328434}
   - {fileID: 480947512}
+  - {fileID: 223656643}
   - {fileID: 204792343}
   m_Father: {fileID: 3890320069175981432}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000095367, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 819.3073, y: 1086.9167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122538540
@@ -19289,7 +19289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CALM
+  m_Text: Claim
 --- !u!224 &3890320068405888270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19701,6 +19701,7 @@ GameObject:
   - component: {fileID: 3890320068537161057}
   - component: {fileID: 3890320068537161059}
   - component: {fileID: 3890320068537161056}
+  - component: {fileID: 3890320068537161055}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -19708,6 +19709,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &3890320068537161055
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3890320068537161054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2385daac7bb72874d8ece25640dafbb1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3890320068537161056
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,17 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdManager : MonoBehaviour
+public class AdManager : MonoSingleton<AdManager>
 {
-    public static AdManager current;
     public int count = 0, maxCount = 3;
     public BannerView bannerView;
     public InterstitialAd interstitial;
-    public float intertstitialAdTimer = 5;
-    private void Awake()
-    {
-        current = this;
-    }
+    public float intertstitialAdTimer = 5;   
     public void InitializeAds()
     {
 
