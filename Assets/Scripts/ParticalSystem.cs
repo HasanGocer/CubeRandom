@@ -57,4 +57,9 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
             yield return new WaitForSeconds(0.2f);
         }
     }
+
+    public void ComboSetActiveFalse()
+    {
+        comboUI.SetActive(false);
+    }
 }

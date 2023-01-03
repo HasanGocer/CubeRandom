@@ -88,13 +88,13 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
             float count = 0.5f + (((float)playerScore / (float)maxScore) / 2);
             if (count >= 1)
             {
+                ParticalSystem.Instance.ComboSetActiveFalse();
                 FinishBarPanel();
                 SoundSystem.Instance.CallEffectFinish();
                 GridReset.Instance.finishGame();
                 Buttons.Instance.winPanel.SetActive(true);
                 StartCoroutine(Buttons.Instance.NoThanxOnActive());
                 StartCoroutine(ParticalSystem.Instance.FinishTimePartical());
-                Buttons.Instance.finishGameMoneyText.text = MoneySystem.Instance.NumberTextRevork(GameManager.Instance.addedMoney);
                 StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
                 GameManager.Instance.isStart = false;
                 RandomSystem.Instance.AllObjectCallBack();
@@ -104,6 +104,7 @@ public class FightBarSystem : MonoSingleton<FightBarSystem>
                 GameManager.Instance.level++;
                 GameManager.Instance.SetLevel();
                 LevelSystem.Instance.NewLevelCheckField();
+                Buttons.Instance.finishGameMoneyText.text = MoneySystem.Instance.NumberTextRevork(GameManager.Instance.addedMoney);
             }
             else
                 StartCoroutine(BarUpdateIenum(count - bar.fillAmount));
