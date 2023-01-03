@@ -47,7 +47,7 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
             part[i].transform.position = pos[i].transform.position;
         }
         yield return new WaitForSeconds(3f);
-        imnt limit = part.Count;
+        int limit = part.Count;
         for (int i = limit - 1; i >= 0; i--)
         {
             ObjectPool.Instance.AddObject(_OPforthParticalCount, part[i]);
