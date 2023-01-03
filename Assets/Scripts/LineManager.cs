@@ -33,6 +33,7 @@ public class LineManager : MonoSingleton<LineManager>
         StartCoroutine(AnimControl.Instance.CallHitPlayer(ID % 4, ID * limit));
         FightBarSystem.Instance.PlayerScoreAdd(ID * limit);
         GameManager.Instance.addedMoney += ID * limit * 3;
+        Objects[0].GetComponent<Draw>().oneTap = true;
         Vibration.Vibrate(30);
         for (int i = limit - 1; i >= 0; i--)
         {
