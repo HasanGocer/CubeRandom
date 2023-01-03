@@ -44,7 +44,7 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         {
             GameObject part = ObjectPool.Instance.GetPooledObject(_OPforthParticalCount);
             part.transform.position = pos[i].transform.position;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.3f);
             ObjectPool.Instance.AddObject(_OPforthParticalCount, part);
         }
         if (count >= 8)

@@ -5,12 +5,10 @@ using UnityEngine;
 public class SoundSystem : MonoSingleton<SoundSystem>
 {
     [SerializeField] private AudioSource mainSource;
-    [SerializeField] private AudioClip mainMusic, failEffect, finishEffect, startEffect, touchEffect;
+    [SerializeField] private AudioClip failEffect, finishEffect, startEffect, touchEffect;
 
     public void MainMusicPlay()
     {
-        mainSource.clip = mainMusic;
-        mainSource.Play();
         mainSource.volume = 70;
     }
 

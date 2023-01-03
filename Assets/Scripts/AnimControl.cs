@@ -37,8 +37,6 @@ public class AnimControl : MonoSingleton<AnimControl>
             mainAnim.Play(boxing1, 0.3f);
         else if (ID == 1)
             mainAnim.Play(boxing1, 0.3f);
-        else if (ID == 2)
-            mainAnim.Play(kick1, 0.3f);
         else
             mainAnim.Play(kick2, 0.3f);
 
