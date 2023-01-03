@@ -18,7 +18,6 @@ public class LineManager : MonoSingleton<LineManager>
             Objects[0].GetComponent<Draw>().LineRendererCanceled();
             for (int i = limit; i >= 0; i--)
             {
-                print(i);
                 Objects[i].gameObject.layer = default;
                 Objects[i].GetComponent<LineTouch>().addedLineManger = false;
             }
@@ -38,11 +37,13 @@ public class LineManager : MonoSingleton<LineManager>
         for (int i = limit - 1; i >= 0; i--)
         {
             Objects[i].GetComponent<Draw>().LineRendererCanceled();
+            Objects[i].gameObject.layer = default;
             ObjectID objectID = Objects[i].GetComponent<ObjectID>();
             RandomSystem.Instance.ObjectGrid[objectID.lineCount, objectID.ColumnCount] = false;
+            Objects[i].GetComponent<LineTouch>().addedLineManger = false;
             RandomSystem.Instance.ObjectPoolAdd(Objects[i], RandomSystem.Instance.ObjectList, ID);
-            Objects.RemoveAt(i);
         }
+        Objects.Clear();
         ID = -1;
     }
 
