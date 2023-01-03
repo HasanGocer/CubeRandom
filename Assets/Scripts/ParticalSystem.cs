@@ -40,12 +40,17 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
     {
         if (count >= 8)
             comboUI.SetActive(true);
+        List<GameObject> part = new List<GameObject>();
         for (int i = 0; i < pos.Count; i++)
         {
-            GameObject part = ObjectPool.Instance.GetPooledObject(_OPforthParticalCount);
-            part.transform.position = pos[i].transform.position;
-            yield return new WaitForSeconds(0.3f);
-            ObjectPool.Instance.AddObject(_OPforthParticalCount, part);
+            part.Add(ObjectPool.Instance.GetPooledObject(_OPforthParticalCount));
+            part[i].transform.position = pos[i].transform.position;
+        }
+        yield return new WaitForSeconds(3f);
+        imnt limit = part.Count;
+        for (int i = limit - 1; i >= 0; i--)
+        {
+            ObjectPool.Instance.AddObject(_OPforthParticalCount, part[i]);
         }
         if (count >= 8)
             comboUI.SetActive(false);
