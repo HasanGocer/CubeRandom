@@ -36,16 +36,20 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         ObjectPool.Instance.AddObject(_OPHitCharacterParticalCount, part);
     }
 
-    public IEnumerator ForthObjectPartical(GameObject pos, int count)
+    public IEnumerator ForthObjectPartical(List<GameObject> pos, int count)
     {
-        GameObject part = ObjectPool.Instance.GetPooledObject(_OPforthParticalCount);
-        part.transform.position = pos.transform.position;
         if (count >= 8)
             comboUI.SetActive(true);
-        yield return new WaitForSeconds(3);
+        for (int i = 0; i < pos.Count; i++)
+        {
+            GameObject part = ObjectPool.Instance.GetPooledObject(_OPforthParticalCount);
+            part.transform.position = pos[i].transform.position;
+            yield return new WaitForSeconds(0.2f);
+            ObjectPool.Instance.AddObject(_OPforthParticalCount, part);
+        }
         if (count >= 8)
             comboUI.SetActive(false);
-        ObjectPool.Instance.AddObject(_OPforthParticalCount, part);
+
     }
 
     public IEnumerator FinishTimePartical()
