@@ -24,8 +24,6 @@ public class ItemData : MonoSingleton<ItemData>
         field.rivalMaxPower = standart.rivalMaxPower + (factor.rivalMaxPower * constant.rivalMaxPower);
         FightBarSystem.Instance.rivalMaxHit = field.rivalMaxPower;
         field.barHealth = standart.barHealth + (factor.barHealth * constant.barHealth);
-
-        AdManager.Instance.bannerView.Hide();
     }
 
     public void SetObjectTypeCount()
