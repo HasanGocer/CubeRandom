@@ -12622,7 +12622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainSource: {fileID: 1687258583}
-  mainMusic: {fileID: 8300000, guid: e1c9e80c23bb17249bdf427f8a86b13e, type: 3}
   failEffect: {fileID: 8300000, guid: a13ae74446fdf6645969e5f70ebed2ae, type: 3}
   finishEffect: {fileID: 8300000, guid: ff55fd39824ec504fa50947f514d9ac0, type: 3}
   startEffect: {fileID: 8300000, guid: c45c6f65f5df63744822cf708dbc26b0, type: 3}
@@ -22388,7 +22387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3890320070098502242
 MonoBehaviour:
   m_ObjectHideFlags: 0
