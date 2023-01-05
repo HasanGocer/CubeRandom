@@ -53,6 +53,7 @@ public class GameManager : MonoSingleton<GameManager>
         MarketSystem.Instance.fieldBool = MarketPlacementRead();
         ItemData.Instance.factor = FactorPlacementRead();
         ItemData.Instance.IDAwake();
+        
     }
 
     public void FactorPlacementWrite(ItemData.Field factor)

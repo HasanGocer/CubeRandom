@@ -60,8 +60,8 @@ MonoBehaviour:
   _outlineLayers: {fileID: 0}
   _outlineSettings:
     _outlineSettings: {fileID: 0}
-    _outlineColor: {r: 0.019607844, g: 0.019607844, b: 0.019607844, a: 1}
-    _outlineWidth: 3
+    _outlineColor: {r: 0.009433985, g: 0.009291586, b: 0.009291586, a: 1}
+    _outlineWidth: 2
     _outlineIntensity: 2
     _outlineAlphaCutoff: 0.9
     _outlineMode: 0
