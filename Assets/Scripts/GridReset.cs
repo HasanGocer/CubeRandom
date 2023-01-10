@@ -21,9 +21,9 @@ public class GridReset : MonoSingleton<GridReset>
     public void GridSystemReset()
     {
         // reklam yaz
-        if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
+     //   if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
         {
-            AdManager.Instance.interstitial.Show();
+          //  AdManager.Instance.interstitial.Show();
             List<int> ObjectsCountInt = RandomSystem.Instance.ObjectCountInt;
             int limit = RandomSystem.Instance.ObjectList.Count - 1;
             for (int i = limit; i >= 0; i--)

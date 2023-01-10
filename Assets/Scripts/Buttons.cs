@@ -31,7 +31,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void Start()
     {
-        GameObject.FindObjectOfType<AdManager>().InitializeAds();
+        // GameObject.FindObjectOfType<AdManager>().InitializeAds();
         ButtonPlacement();
         SettingPlacement();
         levelText.text = GameManager.Instance.level.ToString();
@@ -91,14 +91,14 @@ public class Buttons : MonoSingleton<Buttons>
         FightBarSystem.Instance.StartFightBar();
         AnimControl.Instance.StartAnimencer();
         FightBarSystem.Instance.StartBarPanel();
-        AdManager.Instance.bannerView.Hide();
+        // AdManager.Instance.bannerView.Hide();
     }
     private IEnumerator WinPrizeButton()
     {
-        if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
+        //  if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
         {
             SoundSystem.Instance.CallEffectFinish();
-            AdManager.Instance.interstitial.Show();
+            //AdManager.Instance.interstitial.Show();
             BarSystem.Instance.BarStopButton();
             winButton.enabled = false;
             _winPrizeButton.enabled = false;
@@ -127,8 +127,8 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private void FailButton()
     {
-        if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
-            AdManager.Instance.interstitial.Show();
+        //   if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
+        //    AdManager.Instance.interstitial.Show();
         SoundSystem.Instance.CallEffectFail();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         SceneManager.LoadScene(0);

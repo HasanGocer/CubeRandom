@@ -25,8 +25,8 @@ public class ObjectOpenSystem : MonoSingleton<ObjectOpenSystem>
 
     public IEnumerator NewImageButton()
     {
-        if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
-            AdManager.Instance.interstitial.Show();
+        //    if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
+        //       AdManager.Instance.interstitial.Show();
         newImagePanel.SetActive(false);
         Buttons.Instance.winPanel.gameObject.SetActive(false);
         GameObject obj = Instantiate(newObjectParticalGO);

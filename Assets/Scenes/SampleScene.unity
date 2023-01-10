@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139305, b: 0.49600944, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12719,6 +12719,11 @@ MonoBehaviour:
     ObjectTypeCount: 1
     rivalMaxPower: 2
     barHealth: 20
+  maxFactor:
+    objectCount: 5
+    ObjectTypeCount: 8
+    rivalMaxPower: 5
+    barHealth: 8
 --- !u!114 &1568266406
 MonoBehaviour:
   m_ObjectHideFlags: 0
