@@ -13,6 +13,9 @@ public class LineManager : MonoSingleton<LineManager>
     {
         if (Objects.Count >= 0)
         {
+            FightBarSystem.Instance.RivalScoreAdd(Objects.Count * 2);
+            StartCoroutine(AnimControl.Instance.CallHitRival(Objects.Count * 2));
+
             int limit = Objects.Count - 1;
             print(limit);
             Objects[0].GetComponent<Draw>().LineRendererCanceled();
