@@ -41,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
         if (PlayerPrefs.HasKey("level"))
             level = PlayerPrefs.GetInt("level");
         else
-            PlayerPrefs.SetInt("level", 1);
+            PlayerPrefs.SetInt("level", 50);
 
         if (!PlayerPrefs.HasKey("first"))
         {
