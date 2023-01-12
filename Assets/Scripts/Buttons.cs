@@ -104,9 +104,9 @@ public class Buttons : MonoSingleton<Buttons>
             _winPrizeButton.enabled = false;
             MarketSystem.Instance.FinishGameBackToTheMaterial();
             Vibration.Vibrate(30);
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2f);
             if (!LevelSystem.Instance.newObjectTime)
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(0,LoadSceneMode.Single);
             else
                 ObjectOpenSystem.Instance.NewObjectOpenPanel();
         }
@@ -121,7 +121,7 @@ public class Buttons : MonoSingleton<Buttons>
         MarketSystem.Instance.FinishGameBackToTheMaterial();
         yield return new WaitForSeconds(1.3f);
         if (!LevelSystem.Instance.newObjectTime)
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0,LoadSceneMode.Single);
         else
             ObjectOpenSystem.Instance.NewObjectOpenPanel();
     }
