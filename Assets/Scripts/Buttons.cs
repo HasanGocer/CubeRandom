@@ -96,32 +96,31 @@ public class Buttons : MonoSingleton<Buttons>
     private IEnumerator WinPrizeButton()
     {
         //  if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
-        
-            SoundSystem.Instance.CallEffectFinish();
-            //AdManager.Instance.interstitial.Show();
-            BarSystem.Instance.BarStopButton();
-            winButton.enabled = false;
-            _winPrizeButton.enabled = false;
-            MarketSystem.Instance.FinishGameBackToTheMaterial();
-            Vibration.Vibrate(30);
-            yield return new WaitForSeconds(2f);
-            if (!LevelSystem.Instance.newObjectTime)
-                SceneManager.LoadScene(1);
-            else
-                ObjectOpenSystem.Instance.NewObjectOpenPanel();
-        
+        winButton.enabled = false;
+        _winPrizeButton.enabled = false;
+        SoundSystem.Instance.CallEffectFinish();
+        //AdManager.Instance.interstitial.Show();
+        BarSystem.Instance.BarStopButton();
+        MarketSystem.Instance.FinishGameBackToTheMaterial();
+        Vibration.Vibrate(30);
+        yield return new WaitForSeconds(2f);
+        if (!LevelSystem.Instance.newObjectTime)
+            SceneManager.LoadScene(1);
+        else
+            ObjectOpenSystem.Instance.NewObjectOpenPanel();
+
     }
     private IEnumerator WinButton()
     {
+        winButton.enabled = false;
+        _winPrizeButton.enabled = false;
         SoundSystem.Instance.CallEffectFinish();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         LevelSystem.Instance.NewLevelCheckField();
-        winButton.enabled = false;
-        _winPrizeButton.enabled = false;
         MarketSystem.Instance.FinishGameBackToTheMaterial();
         yield return new WaitForSeconds(1.3f);
         if (!LevelSystem.Instance.newObjectTime)
-            SceneManager.LoadScene(1,LoadSceneMode.Single);
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
         else
             ObjectOpenSystem.Instance.NewObjectOpenPanel();
     }
