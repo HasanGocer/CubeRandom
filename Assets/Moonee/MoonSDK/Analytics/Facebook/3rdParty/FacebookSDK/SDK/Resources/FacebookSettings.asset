@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - 97a4586242a55324ef8b87e2e3721899
   appIds:
-  - 123456
+  - 699088051805997
   appLabels:
-  - 
+  - Line Detonation
   cookie: 1
   logging: 1
   status: 1

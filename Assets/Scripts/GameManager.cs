@@ -22,6 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void PlayerPrefsPlacement()
     {
+        MoonSDK.TrackLevelEvents(MoonSDK.LevelEvents.Start, level);
         if (PlayerPrefs.HasKey("money"))
             money = PlayerPrefs.GetInt("money");
         else

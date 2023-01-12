@@ -96,7 +96,7 @@ public class Buttons : MonoSingleton<Buttons>
     private IEnumerator WinPrizeButton()
     {
         //  if (Application.internetReachability != NetworkReachability.NotReachable && AdManager.Instance.IsReadyInterstitialAd())
-        {
+        
             SoundSystem.Instance.CallEffectFinish();
             //AdManager.Instance.interstitial.Show();
             BarSystem.Instance.BarStopButton();
@@ -106,10 +106,10 @@ public class Buttons : MonoSingleton<Buttons>
             Vibration.Vibrate(30);
             yield return new WaitForSeconds(2f);
             if (!LevelSystem.Instance.newObjectTime)
-                SceneManager.LoadScene(0,LoadSceneMode.Single);
+                SceneManager.LoadScene(1);
             else
                 ObjectOpenSystem.Instance.NewObjectOpenPanel();
-        }
+        
     }
     private IEnumerator WinButton()
     {
@@ -121,7 +121,7 @@ public class Buttons : MonoSingleton<Buttons>
         MarketSystem.Instance.FinishGameBackToTheMaterial();
         yield return new WaitForSeconds(1.3f);
         if (!LevelSystem.Instance.newObjectTime)
-            SceneManager.LoadScene(0,LoadSceneMode.Single);
+            SceneManager.LoadScene(1,LoadSceneMode.Single);
         else
             ObjectOpenSystem.Instance.NewObjectOpenPanel();
     }
@@ -131,7 +131,7 @@ public class Buttons : MonoSingleton<Buttons>
         //    AdManager.Instance.interstitial.Show();
         SoundSystem.Instance.CallEffectFail();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     private void SettingButton()
     {

@@ -33,6 +33,6 @@ public class ObjectOpenSystem : MonoSingleton<ObjectOpenSystem>
         obj.transform.position = firstPosTemp.transform.position;
         obj.transform.DOJump(lastposTemp.transform.position, 2, 2, 2);
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
