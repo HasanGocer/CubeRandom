@@ -17,6 +17,7 @@ public class LineManager : MonoSingleton<LineManager>
             StartCoroutine(AnimControl.Instance.CallHitRival(Objects.Count * 2));
 
             int limit = Objects.Count - 1;
+            print(limit);
             Objects[0].GetComponent<Draw>().LineRendererCanceled();
             for (int i = limit; i >= 0; i--)
             {
@@ -39,24 +40,12 @@ public class LineManager : MonoSingleton<LineManager>
         Vibration.Vibrate(30);
         for (int i = limit - 1; i >= 0; i--)
         {
-            Draw draw = Objects[i].GetComponent<Draw>();
-
-            ObjectID objectID = Objects[i].GetComponent<ObjectID>();
-
-            draw.LineRendererCanceled();
-            draw.oneTap = false;
-            draw.wayIndex = 0;
-
+            Objects[i].GetComponent<Draw>().LineRendererCanceled();
             Objects[i].gameObject.layer = default;
-
+            ObjectID objectID = Objects[i].GetComponent<ObjectID>();
             RandomSystem.Instance.ObjectGrid[objectID.lineCount, objectID.ColumnCount] = false;
             Objects[i].GetComponent<LineTouch>().addedLineManger = false;
             RandomSystem.Instance.ObjectPoolAdd(Objects[i], RandomSystem.Instance.ObjectList, ID);
-            objectID.objectID = 0;
-            objectID.ListCount = 0;
-            objectID.lineCount = 0;
-            objectID.ColumnCount = 0;
-
         }
         Objects.Clear();
         ID = -1;
